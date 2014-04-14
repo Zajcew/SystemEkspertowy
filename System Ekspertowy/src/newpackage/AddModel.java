@@ -241,6 +241,9 @@ public class AddModel extends javax.swing.JFrame {
                 linia = s.nextLine();
                 plik += linia;
                 if (linia.contains("</nr>")) {
+                    linia = linia.replaceAll("</nr>", "");
+                    linia = linia.replaceAll("<nr>", "");
+                    modelCount = Integer.parseInt(linia.trim());
                     modelCount++;
                 }
                 plik += "\n";
@@ -254,47 +257,50 @@ public class AddModel extends javax.swing.JFrame {
 
         //zapisywanie modelu do stringa
         if (!jCheckBox1.isSelected()) {    //model prosty
-            model += "  <model typ=\"prosty\">\n";
-            model += "	<nr>" + modelCount + "</nr>\n";
-            model += "    <wniosek>" + jTextField1.getText() + "</wniosek>\n";
-            model += "	<operatory>";
-            model += "		<operator>" + jComboBox1.getSelectedIndex() + "</operator> \n";//tu poprawić
-            model += "	</operatory>\n";
+            model += "  <model typ=\"prosty\">\r\n";
+            model += "	<nr>" + modelCount + "</nr>\r\n";
+            model += "    <wniosek>" + jTextField1.getText() + "</wniosek>\r\n";
+            model += "	<operatory>\r\n";
+            model += "		<operator>" + jComboBox1.getSelectedIndex() + "</operator> \r\n";//tu poprawić
+            model += "	</operatory>\r\n";
             model += "	<parametry>\n";
-            model += "		<parametr>" + jTextField3.getText() + "</parametr> \n";
-            model += "	</parametry>\n";
-            model += "	<cf>" + jTextField5.getText() + "</cf>\n";
-            model += "  </model>\n";
-            model += "</modele>\n";
+            model += "		<parametr>" + jTextField3.getText() + "</parametr> \r\n";
+            model += "	</parametry>\r\n";
+            model += "	<cf>" + jTextField5.getText() + "</cf>\r\n";
+            model += "  </model>\r\n";
+            model += "</modele>\r\n";
 
         } else {                          //model rozszerzony
-            model += "  <model typ=\"rozszerzony\">\n";
-            model += "	<nr>" + modelCount + "</nr>\n";
-            model += "    <wniosek>" + jTextField1.getText() + "</wniosek>\n";
-            model += "	<operatory>\n";
-            model += "		<operator>" + jComboBox1.getSelectedIndex() + "</operator> \n";//tu poprawić
-            model += "		<operator>" + jComboBox2.getSelectedIndex() + "</operator> \n";//tu poprawić
-            model += "	</operatory>\n";
-            model += "	<parametry>\n";
-            model += "		<parametr>" + jTextField3.getText() + "</parametr> \n";
-            model += "		<parametr>" + jTextField4.getText() + "</parametr> \n";
-            model += "	</parametry>\n";
-            model += "	<cf>" + jTextField5.getText() + "</cf>\n";
-            model += "  </model>\n";
-            model += "</modele>\n";
+            model += "  <model typ=\"rozszerzony\">\r\n";
+            model += "	<nr>" + modelCount + "</nr>\r\n";
+            model += "    <wniosek>" + jTextField1.getText() + "</wniosek>\r\n";
+            model += "	<operatory>\r\n";
+            model += "		<operator>" + jComboBox1.getSelectedIndex() + "</operator> \r\n";//tu poprawić
+            model += "		<operator>" + jComboBox2.getSelectedIndex() + "</operator> \r\n";//tu poprawić
+            model += "	</operatory>\r\n";
+            model += "	<parametry>\r\n";
+            model += "		<parametr>" + jTextField3.getText() + "</parametr> \r\n";
+            model += "		<parametr>" + jTextField4.getText() + "</parametr> \r\n";
+            model += "	</parametry>\r\n";
+            model += "	<cf>" + jTextField5.getText() + "</cf>\r\n";
+            model += "  </model>\r\n";
+            model += "</modele>\r\n";
         }
         plik += model;
         System.out.println(plik);
         try {
-            FileWriter f=new FileWriter(modeleXML);
+            FileWriter f = new FileWriter(modeleXML);
             f.write(plik);
             f.close();
+            JOptionPane.showMessageDialog(null, "Pomyślnie dodano model");
+            setVisible(false);
+            dispose();
         } catch (IOException ex) {
             Logger.getLogger(AddModel.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
