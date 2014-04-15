@@ -20,26 +20,26 @@ import javax.swing.JOptionPane;
  *
  * @author student
  */
-public class AddRule extends javax.swing.JFrame {
+public class AddLimit extends javax.swing.JFrame {
 
     /**
      * Creates new form AddRule
      */
-    File regulyXML;
-    ArrayList<String> objawy;
+    File wykluczeniaXML;
+    ArrayList<String> wykluczenia;
 
-    public AddRule(String title) throws HeadlessException {
+    public AddLimit(String title) throws HeadlessException {
         super(title);
     }
 
-    public AddRule(File regulyXML) {
-        this.regulyXML = regulyXML;
+    public AddLimit(File wykluczeniaXML) {
+        this.wykluczeniaXML = wykluczeniaXML;
 
         initComponents();
         setVisible(true);
         jTextField2.setText("");
         jTextArea1.setText("");
-        objawy = new ArrayList<String>();
+        wykluczenia = new ArrayList<String>();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
@@ -60,35 +60,31 @@ public class AddRule extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Wniosek:");
+        jLabel1.setText("Nazwa:");
 
-        jLabel2.setText("Objawy:");
+        jLabel2.setText("Wykluczenia:");
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton1.setText("dodaj objaw");
+        jButton1.setText("Dodaj wykluczenie");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Dodaj regułe");
+        jButton2.setText("Dodaj wykluczenie");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        jLabel3.setText("Prawdopodobieństwo:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,10 +108,6 @@ public class AddRule extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addContainerGap())
         );
@@ -134,10 +126,7 @@ public class AddRule extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                .addComponent(jButton2)
                 .addContainerGap())
         );
 
@@ -148,23 +137,23 @@ public class AddRule extends javax.swing.JFrame {
         //dodawanie objawów
         if (jTextField2.getText().length()>1) {
 
-            objawy.add(jTextField2.getText());
+            wykluczenia.add(jTextField2.getText());
             jTextArea1.setText((jTextArea1.getText() + "\r\n" + jTextField2.getText()).trim());
             jTextField2.setText("");
         } else {
-            JOptionPane.showMessageDialog(null, "Wpisz objaw");
+            JOptionPane.showMessageDialog(null, "Wpisz wykluczenie");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int last = findLastRule(regulyXML);
+        int last = findLastRule(wykluczeniaXML);
         String plik = "";
-        String regula = "";
-        int ruleCount = 1;
+        String wykluczenie = "";
+        int limitCount = 1;
 
         //dopisywanie modelu do pliku
         try {
-            Scanner s = new Scanner(regulyXML);
+            Scanner s = new Scanner(wykluczeniaXML);
             System.out.println(plik);
             String linia;
             for (int i = 0; i < last; i++) {
@@ -173,11 +162,11 @@ public class AddRule extends javax.swing.JFrame {
                 if (linia.contains("</nr>")) {
                     linia=linia.replaceAll("</nr>", "");
                     linia=linia.replaceAll("<nr>", "");
-                    ruleCount=Integer.parseInt(linia.trim());
-                    ruleCount++;
+                    limitCount=Integer.parseInt(linia.trim());
+                    limitCount++;
                 }
                 plik += "\r\n";
-                plik += regula;
+                plik += wykluczenie;
             }
             plik += "\r\n";
 
@@ -188,26 +177,25 @@ public class AddRule extends javax.swing.JFrame {
             Logger.getLogger(AddModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         //dodanie reguly do stringa
-        regula += "  <regula>\r\n";
-        regula += "	<nr>" + ruleCount + "</nr>\r\n";
-        regula += "	<wniosek>" + jTextField1.getText() + "</wniosek>\r\n";
-        regula += "	<objawy>\r\n";
+        wykluczenie += "  <ograniczenie>\r\n";
+        wykluczenie += "	<nr>" + limitCount + "</nr>\r\n";
+        wykluczenie += "	<nazwa>" + jTextField1.getText() + "</nazwa>\r\n";
+        wykluczenie += "	<wykluczenia>\r\n";
         //dodawanie objawów
-        for (String objaw : objawy) {
-            regula += "		<objaw>" + objaw + "</objaw>\r\n";
+        for (String objaw : wykluczenia) {
+            wykluczenie += "		<wykluczenie>" + objaw + "</wykluczenie>\r\n";
         }
-        regula += "	</objawy>\r\n";
-        regula += "	<cf>" + jTextField3.getText() + "</cf>\r\n";
-        regula += "  </regula>\r\n";
-        regula += "</reguly>\r\n";
+        wykluczenie += "	</wykluczenia>\r\n";
+        wykluczenie += "  </ograniczenie>\r\n";
+        wykluczenie += "</ograniczenia>\r\n";
 
 
-        plik += regula;
+        plik += wykluczenie;
 
         //dodanie stringa do bnazy
         //System.out.println(plik);
         try {
-            FileWriter f = new FileWriter(regulyXML);
+            FileWriter f = new FileWriter(wykluczeniaXML);
             f.write(plik);
             f.close();
             JOptionPane.showMessageDialog(null, "Pomyślnie dodano model");
@@ -225,7 +213,7 @@ public class AddRule extends javax.swing.JFrame {
             int i = 0;
             while (s.hasNextLine()) {
                 i++;
-                if (s.nextLine().contains("</regula>")) {
+                if (s.nextLine().contains("</ograniczenie>")) {
                     lastLine = i;
                 }
             }
@@ -242,11 +230,9 @@ public class AddRule extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
