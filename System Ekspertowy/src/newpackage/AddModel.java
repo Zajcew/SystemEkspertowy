@@ -35,6 +35,7 @@ public class AddModel extends javax.swing.JFrame {
         this.modeleXML = modeleXML;
         initComponents();
         setVisible(true);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         //System.out.println(findLastModel(regulyXML));
     }

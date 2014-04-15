@@ -41,6 +41,7 @@ public class AddLimit extends javax.swing.JFrame {
         jTextArea1.setText("");
         wykluczenia = new ArrayList<String>();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -61,7 +62,8 @@ public class AddLimit extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setText("Nazwa:");
 
@@ -79,7 +81,8 @@ public class AddLimit extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Dodaj wykluczenie");
+        jButton2.setText("Dodaj ograniczenie");
+        jButton2.setActionCommand("Dodaj ograniczenie");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

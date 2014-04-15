@@ -40,6 +40,7 @@ public class AddRule extends javax.swing.JFrame {
         jTextField2.setText("");
         jTextArea1.setText("");
         objawy = new ArrayList<String>();
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
