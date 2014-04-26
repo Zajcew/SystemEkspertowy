@@ -71,7 +71,7 @@ public class RemoveModel extends javax.swing.JFrame {
                     plik += currentLine + "\n";
                 }
             }
-
+            s.close();
         } catch (FileNotFoundException ex) {
         }
         //System.out.println(plik);
@@ -117,6 +117,7 @@ public class RemoveModel extends javax.swing.JFrame {
                     k = -1;
                 }
             }
+            s.close();
             // combo box
             Vector comboBoxItems = new Vector();
             for (int ii = 0; ii < modele.size(); ii++) {
@@ -185,6 +186,8 @@ public class RemoveModel extends javax.swing.JFrame {
             //System.out.println("2");
             modele.remove(selectedIndex);
             //System.out.println("3");
+            setVisible(false);
+            dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables

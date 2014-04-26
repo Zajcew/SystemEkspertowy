@@ -83,6 +83,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu3.add(jMenuItem2);
 
         jMenuItem7.setText("Usuń regułe");
+        jMenuItem7.setEnabled(false);
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem7ActionPerformed(evt);
@@ -112,6 +113,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu4.add(jMenuItem4);
 
         jMenuItem8.setText("Usuń model");
+        jMenuItem8.setEnabled(false);
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);
@@ -168,6 +170,7 @@ public class MainWindow extends javax.swing.JFrame {
         if (regulyXML.canRead() && regulyXML.getAbsolutePath().endsWith(".xml")) {
             JOptionPane.showMessageDialog(null, "Wczytano poprawny plik");
             jMenuItem2.setEnabled(true);
+            jMenuItem7.setEnabled(true); // usun regule
         } else {
             JOptionPane.showMessageDialog(null, "Wybrany plik jest nie poprawny");
         }
@@ -191,6 +194,7 @@ public class MainWindow extends javax.swing.JFrame {
         if (modeleXML.canRead() && modeleXML.getAbsolutePath().endsWith(".xml")) {
             JOptionPane.showMessageDialog(null, "Wczytano poprawny plik");
             jMenuItem4.setEnabled(true);
+            jMenuItem8.setEnabled(true); // usun model
         } else {
             JOptionPane.showMessageDialog(null, "Wybrany plik jest nie poprawny");
         }
