@@ -83,11 +83,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem2);
 
-<<<<<<< HEAD
-        jMenuItem7.setText("Wyświetl");
-=======
         jMenuItem7.setText("Usuń regułe");
->>>>>>> 623d0e54aaa7cc945766f43d534b8f2b18bcfa65
         jMenuItem7.setEnabled(false);
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,11 +180,7 @@ public class MainWindow extends javax.swing.JFrame {
         if (regulyXML.canRead() && regulyXML.getAbsolutePath().endsWith(".xml")) {
             JOptionPane.showMessageDialog(null, "Wczytano poprawny plik");
             jMenuItem2.setEnabled(true);
-<<<<<<< HEAD
-            jMenuItem7.setEnabled(true);
-=======
             jMenuItem7.setEnabled(true); // usun regule
->>>>>>> 623d0e54aaa7cc945766f43d534b8f2b18bcfa65
         } else {
             JOptionPane.showMessageDialog(null, "Wybrany plik jest nie poprawny");
         }
@@ -245,11 +237,6 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-<<<<<<< HEAD
-        ShowRules rules=new ShowRules(regulyXML);
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
-
-=======
         RemoveRule rRule = new RemoveRule(regulyXML);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
@@ -261,7 +248,6 @@ public class MainWindow extends javax.swing.JFrame {
         RemoveLimit rLimit = new RemoveLimit(wykluczeniaXML);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
->>>>>>> 623d0e54aaa7cc945766f43d534b8f2b18bcfa65
     /**
      * @param args the command line arguments
      */
@@ -312,10 +298,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-<<<<<<< HEAD
-=======
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
->>>>>>> 623d0e54aaa7cc945766f43d534b8f2b18bcfa65
     // End of variables declaration//GEN-END:variables
 }

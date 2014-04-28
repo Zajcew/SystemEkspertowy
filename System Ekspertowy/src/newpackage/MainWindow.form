@@ -46,11 +46,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
               <Properties>
-<<<<<<< HEAD
-                <Property name="text" type="java.lang.String" value="Wy&#x15b;wietl"/>
-=======
                 <Property name="text" type="java.lang.String" value="Usu&#x144; regu&#x142;e"/>
->>>>>>> 623d0e54aaa7cc945766f43d534b8f2b18bcfa65
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
