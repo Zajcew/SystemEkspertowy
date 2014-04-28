@@ -177,14 +177,19 @@ public class MainWindow extends javax.swing.JFrame {
         wczytaj.showOpenDialog(jMenu1);
 
         regulyXML = wczytaj.getSelectedFile();
-        if (regulyXML.canRead() && regulyXML.getAbsolutePath().endsWith(".xml")) {
-            JOptionPane.showMessageDialog(null, "Wczytano poprawny plik");
-            jMenuItem2.setEnabled(true);
-            jMenuItem7.setEnabled(true); // usun regule
-        } else {
+        try {
+
+
+            if (regulyXML.canRead() && regulyXML.getAbsolutePath().endsWith(".xml")) {
+                JOptionPane.showMessageDialog(null, "Wczytano poprawny plik");
+                jMenuItem2.setEnabled(true);
+                jMenuItem7.setEnabled(true); // usun regule
+            } else {
+                JOptionPane.showMessageDialog(null, "Wybrany plik jest nie poprawny");
+            }
+        } catch (Exception NuException) {
             JOptionPane.showMessageDialog(null, "Wybrany plik jest nie poprawny");
         }
-
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -233,7 +238,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        AddLimit limit=new AddLimit(wykluczeniaXML);
+        AddLimit limit = new AddLimit(wykluczeniaXML);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -282,7 +287,6 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
