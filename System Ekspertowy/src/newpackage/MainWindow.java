@@ -50,9 +50,11 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -81,7 +83,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem2);
 
+<<<<<<< HEAD
         jMenuItem7.setText("Wyświetl");
+=======
+        jMenuItem7.setText("Usuń regułe");
+>>>>>>> 623d0e54aaa7cc945766f43d534b8f2b18bcfa65
         jMenuItem7.setEnabled(false);
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +117,15 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem4);
 
+        jMenuItem8.setText("Usuń model");
+        jMenuItem8.setEnabled(false);
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem8);
+
         jMenuBar2.add(jMenu4);
 
         jMenu5.setText("Baza wykluczeń");
@@ -131,6 +146,15 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         jMenu5.add(jMenuItem6);
+
+        jMenuItem9.setText("Usun wykluczenie");
+        jMenuItem9.setEnabled(false);
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem9);
 
         jMenuBar2.add(jMenu5);
 
@@ -160,7 +184,11 @@ public class MainWindow extends javax.swing.JFrame {
         if (regulyXML.canRead() && regulyXML.getAbsolutePath().endsWith(".xml")) {
             JOptionPane.showMessageDialog(null, "Wczytano poprawny plik");
             jMenuItem2.setEnabled(true);
+<<<<<<< HEAD
             jMenuItem7.setEnabled(true);
+=======
+            jMenuItem7.setEnabled(true); // usun regule
+>>>>>>> 623d0e54aaa7cc945766f43d534b8f2b18bcfa65
         } else {
             JOptionPane.showMessageDialog(null, "Wybrany plik jest nie poprawny");
         }
@@ -184,12 +212,14 @@ public class MainWindow extends javax.swing.JFrame {
         if (modeleXML.canRead() && modeleXML.getAbsolutePath().endsWith(".xml")) {
             JOptionPane.showMessageDialog(null, "Wczytano poprawny plik");
             jMenuItem4.setEnabled(true);
+            jMenuItem8.setEnabled(true); // usun model
         } else {
             JOptionPane.showMessageDialog(null, "Wybrany plik jest nie poprawny");
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        System.out.println("ff " + modeleXML.getName());
         AddModel model = new AddModel(modeleXML);
 
     }//GEN-LAST:event_jMenuItem4ActionPerformed
@@ -204,6 +234,7 @@ public class MainWindow extends javax.swing.JFrame {
         if (wykluczeniaXML.canRead() && wykluczeniaXML.getAbsolutePath().endsWith(".xml")) {
             JOptionPane.showMessageDialog(null, "Wczytano poprawny plik");
             jMenuItem6.setEnabled(true);
+            jMenuItem9.setEnabled(true); // usun wykluczenie
         } else {
             JOptionPane.showMessageDialog(null, "Wybrany plik jest nie poprawny");
         }
@@ -214,9 +245,23 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+<<<<<<< HEAD
         ShowRules rules=new ShowRules(regulyXML);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+=======
+        RemoveRule rRule = new RemoveRule(regulyXML);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        RemoveModel rModel = new RemoveModel(modeleXML);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        RemoveLimit rLimit = new RemoveLimit(wykluczeniaXML);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+>>>>>>> 623d0e54aaa7cc945766f43d534b8f2b18bcfa65
     /**
      * @param args the command line arguments
      */
@@ -267,5 +312,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+<<<<<<< HEAD
+=======
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
+>>>>>>> 623d0e54aaa7cc945766f43d534b8f2b18bcfa65
     // End of variables declaration//GEN-END:variables
 }
