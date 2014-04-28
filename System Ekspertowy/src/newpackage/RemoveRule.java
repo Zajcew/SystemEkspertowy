@@ -30,11 +30,13 @@ public class RemoveRule extends javax.swing.JFrame {
         public int nr;
         public int startLine;
         public int endLine;
+        public String wniosek;
 
-        public Rule(int n, int s, int e) {
+        public Rule(int n, int s, int e, String wniosek) {
             this.nr = n;
             this.startLine = s;
             this.endLine = e;
+            this.wniosek = wniosek;
         }
 
         @Override
@@ -92,6 +94,7 @@ public class RemoveRule extends javax.swing.JFrame {
             Scanner s = new Scanner(fileName);
             int i = 0;
             int nr = -1, p = -1, k = -1;
+            String wniosek = "";
             while (s.hasNextLine()) {
                 i++;
                 String currentLine = s.nextLine();
@@ -101,12 +104,16 @@ public class RemoveRule extends javax.swing.JFrame {
                     currentLine = currentLine.replaceAll("</nr>", "");
                     currentLine = currentLine.replaceAll("<nr>", "");
                     nr = Integer.parseInt(currentLine.trim());
+                } else if (currentLine.contains("<wniosek>")) { // wniosek modelu
+                    currentLine = currentLine.replaceAll("</wniosek>", "");
+                    currentLine = currentLine.replaceAll("<wniosek>", "");
+                    wniosek = currentLine.trim();
                 } else if (currentLine.contains("</regula>")) { // koniec modelu
                     k = i;
 
                     // dodaj do listy
                     if (nr != -1 && p != -1 && k != -1) {
-                        Rule newRule = new Rule(nr, p, k);
+                        Rule newRule = new Rule(nr, p, k, wniosek);
                         rules.add(newRule);
                         //jComboBox1.addItem(newModel);
                         //System.out.println(nr + " " + " " + p + " " + k);
@@ -121,7 +128,7 @@ public class RemoveRule extends javax.swing.JFrame {
             // combo box
             Vector comboBoxItems = new Vector();
             for (int ii = 0; ii < rules.size(); ii++) {
-                comboBoxItems.add(Integer.toString(rules.get(ii).nr));
+                comboBoxItems.add("Nr: " + Integer.toString(rules.get(ii).nr) + ", Wniosek: " + rules.get(ii).wniosek);
             }
             reguly = new DefaultComboBoxModel(comboBoxItems);
         } catch (FileNotFoundException ex) {

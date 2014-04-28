@@ -30,11 +30,13 @@ public class RemoveLimit extends javax.swing.JFrame {
         public int nr;
         public int startLine;
         public int endLine;
+        public String nazwa;
 
-        public Limit(int n, int s, int e) {
+        public Limit(int n, int s, int e, String nazwa) {
             this.nr = n;
             this.startLine = s;
             this.endLine = e;
+            this.nazwa = nazwa;
         }
 
         @Override
@@ -92,6 +94,7 @@ public class RemoveLimit extends javax.swing.JFrame {
             Scanner s = new Scanner(fileName);
             int i = 0;
             int nr = -1, p = -1, k = -1;
+            String nazwa = "";
             while (s.hasNextLine()) {
                 i++;
                 String currentLine = s.nextLine();
@@ -101,12 +104,16 @@ public class RemoveLimit extends javax.swing.JFrame {
                     currentLine = currentLine.replaceAll("</nr>", "");
                     currentLine = currentLine.replaceAll("<nr>", "");
                     nr = Integer.parseInt(currentLine.trim());
+                 } else if (currentLine.contains("<nazwa>")) { // nr modelu
+                    currentLine = currentLine.replaceAll("</nazwa>", "");
+                    currentLine = currentLine.replaceAll("<nazwa>", "");
+                    nazwa = currentLine.trim();
                 } else if (currentLine.contains("</ograniczenie>")) { // koniec modelu
                     k = i;
 
                     // dodaj do listy
                     if (nr != -1 && p != -1 && k != -1) {
-                        Limit newLimit = new Limit(nr, p, k);
+                        Limit newLimit = new Limit(nr, p, k, nazwa);
                         limity.add(newLimit);
                         //jComboBox1.addItem(newModel);
                         //System.out.println(nr + " " + " " + p + " " + k);
@@ -121,7 +128,7 @@ public class RemoveLimit extends javax.swing.JFrame {
             // combo box
             Vector comboBoxItems = new Vector();
             for (int ii = 0; ii < limity.size(); ii++) {
-                comboBoxItems.add(Integer.toString(limity.get(ii).nr));
+                comboBoxItems.add("Nr: " + Integer.toString(limity.get(ii).nr) + ", Nazwa: " + limity.get(ii).nazwa);
             }
             model = new DefaultComboBoxModel(comboBoxItems);
         } catch (FileNotFoundException ex) {

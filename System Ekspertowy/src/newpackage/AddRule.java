@@ -164,8 +164,8 @@ public class AddRule extends javax.swing.JFrame {
         int ruleCount = 1;
 
         //dopisywanie modelu do pliku
-        try {
-            Scanner s = new Scanner(regulyXML);
+        try (Scanner s = new Scanner(regulyXML)){
+            
             System.out.println(plik);
             String linia;
             for (int i = 0; i < last; i++) {
@@ -181,6 +181,7 @@ public class AddRule extends javax.swing.JFrame {
                 plik += regula;
             }
             plik += "\r\n";
+            s.close();
 
 
             System.out.println(plik);
@@ -221,8 +222,8 @@ public class AddRule extends javax.swing.JFrame {
 
     private int findLastRule(File regulyXML) {// znajdowanie lini ostatniego modelu
         int lastLine = 0;
-        try {
-            Scanner s = new Scanner(regulyXML);
+        try(Scanner s = new Scanner(regulyXML)) {
+            
             int i = 0;
             while (s.hasNextLine()) {
                 i++;
@@ -230,6 +231,7 @@ public class AddRule extends javax.swing.JFrame {
                     lastLine = i;
                 }
             }
+            s.close();
         } catch (FileNotFoundException ex) {
 
             Logger.getLogger(AddModel.class.getName()).log(Level.SEVERE, null, ex);

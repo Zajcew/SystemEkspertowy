@@ -42,8 +42,8 @@ public class AddModel extends javax.swing.JFrame {
 
     private int findLastModel(File regulyXML) {// znajdowanie lini ostatniego modelu
         int lastLine = 0;
-        try {
-            Scanner s = new Scanner(regulyXML);
+        try (Scanner s = new Scanner(regulyXML)){
+            
             int i = 0;
             while (s.hasNextLine()) {
                 i++;
@@ -51,6 +51,7 @@ public class AddModel extends javax.swing.JFrame {
                     lastLine = i;
                 }
             }
+            s.close();
         } catch (FileNotFoundException ex) {
 
             Logger.getLogger(AddModel.class.getName()).log(Level.SEVERE, null, ex);
@@ -234,8 +235,8 @@ public class AddModel extends javax.swing.JFrame {
         int modelCount = 1;
 
         //dopisywanie modelu do pliku
-        try {
-            Scanner s = new Scanner(modeleXML);
+        try (Scanner s = new Scanner(modeleXML)){
+            
             System.out.println(plik);
             String linia;
             for (int i = 0; i < last; i++) {
@@ -250,6 +251,7 @@ public class AddModel extends javax.swing.JFrame {
                 plik += "\n";
                 plik += model;
             }
+            s.close();
             plik += "\n";
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "Nie można odczytać pliku");
