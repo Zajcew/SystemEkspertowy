@@ -12,3 +12,4 @@
 hs_err_pid*
 /System Ekspertowy/dist/
 System Ekspertowy/nbproject/private/private.properties
+*.properties
