@@ -21,43 +21,17 @@ import javax.swing.JOptionPane;
  *
  * @author Artur
  */
-public class RemoveRule extends javax.swing.JFrame {
+public class ShowRule extends javax.swing.JFrame {
 
     DefaultComboBoxModel reguly;
 
-    public class Rule {
-
-        public int nr;
-        public int startLine;
-        public int endLine;
-        public String wniosek;
-        public String objawy;
-        public String cf;
-
-        public Rule(int n, int s, int e, String wniosek, String objawy, String cf) {
-            this.nr = n;
-            this.startLine = s;
-            this.endLine = e;
-            this.wniosek = wniosek;
-            this.objawy = objawy;
-            this.cf = cf;
-        }
-
-        @Override
-        public String toString() {
-            return Integer.toString(nr);
-        }
-    }
     File fileName;
-    ArrayList<Rule> rules;
 
-    public RemoveRule(File fileName) {
+    public ShowRule(File fileName) {
         this.fileName = fileName;
         //System.out.println(" " + fileName.getPath());
-        this.rules = new ArrayList<>();
-        loadList();
-
         initComponents();
+        loadList();
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -89,7 +63,7 @@ public class RemoveRule extends javax.swing.JFrame {
             //System.out.println("1.5.1");
             JOptionPane.showMessageDialog(null, "Pomyślnie usunieto regule");
         } catch (IOException ex) {
-            Logger.getLogger(RemoveRule.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ShowRule.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -121,14 +95,16 @@ public class RemoveRule extends javax.swing.JFrame {
                 } else if (currentLine.contains("<objaw>")) { // objaw modelu
                     currentLine = currentLine.replaceAll("</objaw>", "");
                     currentLine = currentLine.replaceAll("<objaw>", "");
-                    objawy += currentLine.trim() + " ";
+                    objawy += currentLine.trim() + ", ";
                 } else if (currentLine.contains("</regula>")) { // koniec modelu
                     k = i;
 
                     // dodaj do listy
                     if (nr != -1 && p != -1 && k != -1) {
-                        Rule newRule = new Rule(nr, p, k, wniosek, objawy, cf);
-                        rules.add(newRule);
+                        jTextArea1.setText(jTextArea1.getText() + "Nr: " + nr + "\n"); // nr
+                        jTextArea1.setText(jTextArea1.getText() + "Wniosek: " + wniosek + "\n"); // wniosek
+                        jTextArea1.setText(jTextArea1.getText() + "Objawy: " + objawy + "\n"); // objawy
+                        jTextArea1.setText(jTextArea1.getText() + "CF: " + cf+ "\n\n"); // cf
                         objawy = "";
                         cf = "";
                         wniosek = "";
@@ -142,12 +118,6 @@ public class RemoveRule extends javax.swing.JFrame {
                 }
             }
             s.close();
-            // combo box
-            Vector comboBoxItems = new Vector();
-            for (int ii = 0; ii < rules.size(); ii++) {
-                comboBoxItems.add("Nr: " + Integer.toString(rules.get(ii).nr) + ", Wniosek: " + rules.get(ii).wniosek);
-            }
-            reguly = new DefaultComboBoxModel(comboBoxItems);
         } catch (FileNotFoundException ex) {
         }
     }
@@ -161,94 +131,33 @@ public class RemoveRule extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(reguly);
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Usun");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("CF");
-
-        jLabel2.setText("Objawy");
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setToolTipText("");
+        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(134, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
         );
-
-        jLabel1.getAccessibleContext().setAccessibleName("jLabelCF");
-        jLabel2.getAccessibleContext().setAccessibleName("jLabelObjawy");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (jComboBox1.getSelectedIndex() != -1) {
-            int selectedIndex = jComboBox1.getSelectedIndex();
-            jComboBox1.removeItemAt(selectedIndex);
-
-            // zapisz nowy plik
-            //System.out.println("1");
-            removeLines(fileName, rules.get(selectedIndex).startLine, rules.get(selectedIndex).endLine);
-            //System.out.println("2");
-            rules.remove(selectedIndex);
-            //System.out.println("3");
-            setVisible(false);
-            dispose();
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-         if (jComboBox1.getSelectedIndex() != -1) {
-             int selectedIndex = jComboBox1.getSelectedIndex();
-             jLabel1.setText(rules.get(selectedIndex).cf); // cf
-             jLabel2.setText(rules.get(selectedIndex).objawy);// objawy
-         }
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

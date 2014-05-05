@@ -45,6 +45,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -73,6 +74,15 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         jMenu3.add(jMenuItem1);
+
+        jMenuItem10.setText("Wyświetl reguły");
+        jMenuItem10.setEnabled(false);
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem10);
 
         jMenuItem2.setText("Dodaj regułe");
         jMenuItem2.setEnabled(false);
@@ -184,6 +194,7 @@ public class MainWindow extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(null, "Wczytano poprawny plik");
           jMenuItem2.setEnabled(true);
           jMenuItem7.setEnabled(true); // usun regule
+          jMenuItem10.setEnabled(true); // wyswietl reguly
         } else {
           JOptionPane.showMessageDialog(null, "Wybrany plik jest nie poprawny");
         }
@@ -259,6 +270,10 @@ public class MainWindow extends javax.swing.JFrame {
       RemoveLimit rLimit = new RemoveLimit(wykluczeniaXML);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        ShowRule sRule = new ShowRule(regulyXML);
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
   /**
    * @param args the command line arguments
    */
@@ -302,6 +317,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
