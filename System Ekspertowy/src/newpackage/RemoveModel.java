@@ -31,12 +31,14 @@ public class RemoveModel extends javax.swing.JFrame {
         public int startLine;
         public int endLine;
         public String wniosek;
+        public String cf;
 
-        public Model(int n, int s, int e, String wniosek) {
+        public Model(int n, int s, int e, String wniosek, String cf) {
             this.nr = n;
             this.startLine = s;
             this.endLine = e;
             this.wniosek = wniosek;
+            this.cf = cf;
         }
 
         @Override
@@ -95,6 +97,7 @@ public class RemoveModel extends javax.swing.JFrame {
             int i = 0;
             int nr = -1, p = -1, k = -1;
             String wniosek = "";
+            String cf = "";
             while (s.hasNextLine()) {
                 i++;
                 String currentLine = s.nextLine();
@@ -108,13 +111,19 @@ public class RemoveModel extends javax.swing.JFrame {
                     currentLine = currentLine.replaceAll("</wniosek>", "");
                     currentLine = currentLine.replaceAll("<wniosek>", "");
                     wniosek =currentLine.trim();
+                } else if (currentLine.contains("<cf>")) { // cf modelu
+                    currentLine = currentLine.replaceAll("</cf>", "");
+                    currentLine = currentLine.replaceAll("<cf>", "");
+                    cf = currentLine.trim();
                 } else if (currentLine.contains("</model>")) { // koniec modelu
                     k = i;
 
                     // dodaj do listy
                     if (nr != -1 && p != -1 && k != -1) {
-                        Model newModel = new Model(nr, p, k, wniosek);
+                        Model newModel = new Model(nr, p, k, wniosek, cf);
                         modele.add(newModel);
+                        cf = "";
+                        wniosek = "";
                         //jComboBox1.addItem(newModel);
                         //System.out.println(nr + " " + " " + p + " " + k);
                     }
@@ -146,10 +155,16 @@ public class RemoveModel extends javax.swing.JFrame {
 
         jComboBox1 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jComboBox1.setModel(model);
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Usun");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -158,15 +173,20 @@ public class RemoveModel extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("CF");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
+                    .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -176,7 +196,9 @@ public class RemoveModel extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
@@ -197,8 +219,17 @@ public class RemoveModel extends javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+         if (jComboBox1.getSelectedIndex() != -1) {
+             int selectedIndex = jComboBox1.getSelectedIndex();
+             jLabel1.setText(modele.get(selectedIndex).cf); // cf
+         }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

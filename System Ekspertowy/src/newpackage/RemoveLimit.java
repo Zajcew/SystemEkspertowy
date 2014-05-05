@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
 public class RemoveLimit extends javax.swing.JFrame {
 
     DefaultComboBoxModel model;
+    private String wykluczenie;
 
     public class Limit {
 
@@ -31,12 +32,14 @@ public class RemoveLimit extends javax.swing.JFrame {
         public int startLine;
         public int endLine;
         public String nazwa;
+        public String wykluczenie;
 
-        public Limit(int n, int s, int e, String nazwa) {
+        public Limit(int n, int s, int e, String nazwa, String wykluczenie) {
             this.nr = n;
             this.startLine = s;
             this.endLine = e;
             this.nazwa = nazwa;
+            this.wykluczenie = wykluczenie;
         }
 
         @Override
@@ -95,6 +98,7 @@ public class RemoveLimit extends javax.swing.JFrame {
             int i = 0;
             int nr = -1, p = -1, k = -1;
             String nazwa = "";
+            String wykluczenie = "";
             while (s.hasNextLine()) {
                 i++;
                 String currentLine = s.nextLine();
@@ -104,17 +108,23 @@ public class RemoveLimit extends javax.swing.JFrame {
                     currentLine = currentLine.replaceAll("</nr>", "");
                     currentLine = currentLine.replaceAll("<nr>", "");
                     nr = Integer.parseInt(currentLine.trim());
-                 } else if (currentLine.contains("<nazwa>")) { // nr modelu
+                 } else if (currentLine.contains("<nazwa>")) { // nazwa modelu
                     currentLine = currentLine.replaceAll("</nazwa>", "");
                     currentLine = currentLine.replaceAll("<nazwa>", "");
                     nazwa = currentLine.trim();
+                } else if (currentLine.contains("<wykluczenie>")) { // wykluczenie modelu
+                    currentLine = currentLine.replaceAll("</wykluczenie>", "");
+                    currentLine = currentLine.replaceAll("<wykluczenie>", "");
+                    wykluczenie += currentLine.trim() + " ";
                 } else if (currentLine.contains("</ograniczenie>")) { // koniec modelu
                     k = i;
 
                     // dodaj do listy
                     if (nr != -1 && p != -1 && k != -1) {
-                        Limit newLimit = new Limit(nr, p, k, nazwa);
+                        Limit newLimit = new Limit(nr, p, k, nazwa, wykluczenie);
                         limity.add(newLimit);
+                        wykluczenie = "";
+                        nazwa = "";
                         //jComboBox1.addItem(newModel);
                         //System.out.println(nr + " " + " " + p + " " + k);
                     }
@@ -146,10 +156,16 @@ public class RemoveLimit extends javax.swing.JFrame {
 
         jComboBox1 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jComboBox1.setModel(model);
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Usun");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -158,15 +174,20 @@ public class RemoveLimit extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Wykluczenie");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
+                    .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -176,7 +197,9 @@ public class RemoveLimit extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         pack();
@@ -197,8 +220,17 @@ public class RemoveLimit extends javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+         if (jComboBox1.getSelectedIndex() != -1) {
+             int selectedIndex = jComboBox1.getSelectedIndex();
+             jLabel1.setText(limity.get(selectedIndex).wykluczenie);// objawy
+         }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
