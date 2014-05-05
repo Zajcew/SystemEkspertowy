@@ -50,13 +50,12 @@ public class RemoveRule extends javax.swing.JFrame {
     }
     File fileName;
     ArrayList<Rule> rules;
-
+    
     public RemoveRule(File fileName) {
         this.fileName = fileName;
         //System.out.println(" " + fileName.getPath());
         this.rules = new ArrayList<>();
         loadList();
-
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
