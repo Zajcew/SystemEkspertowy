@@ -212,7 +212,7 @@ public class AddRule extends javax.swing.JFrame {
             FileWriter f = new FileWriter(regulyXML);
             f.write(plik);
             f.close();
-            JOptionPane.showMessageDialog(null, "Pomyślnie dodano model");
+            JOptionPane.showMessageDialog(null, "Pomyślnie dodano regułę");
             setVisible(false);
             dispose();
         } catch (IOException ex) {

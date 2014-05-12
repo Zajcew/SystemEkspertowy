@@ -6,6 +6,8 @@
 package newpackage;
 
 import java.awt.GridLayout;
+import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -37,6 +39,7 @@ public class MainWindow extends javax.swing.JFrame {
     File regulyXML;
     File modeleXML;
     File wykluczeniaXML;
+    ArrayList<Parametr> objawyList = new ArrayList<>();
 
     public MainWindow() {
         initComponents();
@@ -226,9 +229,10 @@ public class MainWindow extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Wybrany plik jest nie poprawny");
             }
-        } catch (Exception NuException) {
+        } catch (HeadlessException | NullPointerException NuException) {
             JOptionPane.showMessageDialog(null, "Wybrany plik jest nie poprawny");
         }
+
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -303,9 +307,9 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
   private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-      System.out.println("asddas");
-      JFrame objawy = new JFrame("Wprowadz objawy");
-      JButton zatwierdz=new JButton("zatwierdz");
+
+      JFrame objawy = new JFrame("Wprowadz objawy");    //tworzenie frame
+      JButton zatwierdz = new JButton("zatwierdz");
       objawy.setVisible(true);
       objawy.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
       objawy.setSize(720, 480);
@@ -313,31 +317,57 @@ public class MainWindow extends javax.swing.JFrame {
       objawy.setAlwaysOnTop(true);
 
       GridLayout gridLayout = new GridLayout(0, 2);
-      ArrayList<String> objawyList=getObjawy(regulyXML);
+
+      setObjawy(regulyXML, objawyList);
+
       ArrayList<JLabel> jLabels = new ArrayList<>();
-      ArrayList<JTextField> jFields = new ArrayList<>();
-      
+      final ArrayList<JTextField> jFields = new ArrayList<>();
+
       JPanel panel = new JPanel();
       JScrollPane jsp = new JScrollPane(panel);
       objawy.add(jsp);
       panel.setLayout(gridLayout);
       gridLayout.setVgap(10);
-      
-      for(int i=0;i<objawyList.size();i++){
-          jLabels.add(new JLabel(objawyList.get(i)));
+
+      for (int i = 0; i < objawyList.size(); i++) {
+          jLabels.add(new JLabel(objawyList.get(i).nazwa));
           jFields.add(new JTextField());
           panel.add(jLabels.get(i));
           panel.add(jFields.get(i));
 
       }
+      final JLabel blad=new JLabel("");
       panel.add(zatwierdz);
+      panel.add(blad);
+      zatwierdz.addActionListener(new java.awt.event.ActionListener() {
+          @Override
+          public void actionPerformed(java.awt.event.ActionEvent evt) {
+              zatwierdzActionPerformed(evt);
+          }
+
+          private void zatwierdzActionPerformed(ActionEvent evt) {     //reakcja na ztwierdz
+              blad.setText("");
+              try {
+                  double d;
+
+                  for (int i = 0; i < objawyList.size(); i++) {
+                      d=Double.parseDouble(jFields.get(i).getText());
+                      
+                      objawyList.set(i, new Parametr(objawyList.get(i).nazwa, d));
+                      System.out.println(objawyList.get(i).nazwa + " " + objawyList.get(i).wartosc);
+                  }
+              } catch (      NumberFormatException | NullPointerException n) {
+                  blad.setText("Wprowadzono bledny format danych");
+              }
+          }
+      });
 
 
   }//GEN-LAST:event_jMenuItem11ActionPerformed
-    private ArrayList<String> getObjawy(File regulyXML) {
-        try(Scanner sc = new Scanner(regulyXML)) {
-            
-            ArrayList<String> objawy = new ArrayList<>();
+
+    private void setObjawy(File regulyXML, ArrayList<Parametr> objList) {
+        try (Scanner sc = new Scanner(regulyXML)) {
+
             String linia;
             String objaw = "";
             while (sc.hasNext()) {
@@ -349,24 +379,18 @@ public class MainWindow extends javax.swing.JFrame {
 
                     }
 
-                    System.out.println(objaw);
-
-                    objawy.add(objaw);
+                    objList.add(new Parametr(objaw, 0));
                     objaw = "";
 
                 }
             }
             sc.close();
-            return objawy;
-        } catch (FileNotFoundException ex) {
+            //return objawy;
+        } catch (FileNotFoundException | NullPointerException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "nie wybrano pliku");
-        } catch (NullPointerException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "nie wybrano pliku");
-
         }
-        return null;
+        //return null;
     }
 
     /**
@@ -374,7 +398,7 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
@@ -385,19 +409,14 @@ public class MainWindow extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-    //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MainWindow().setVisible(true);
             }

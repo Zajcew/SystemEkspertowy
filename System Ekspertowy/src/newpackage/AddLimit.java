@@ -202,7 +202,7 @@ public class AddLimit extends javax.swing.JFrame {
             FileWriter f = new FileWriter(wykluczeniaXML);
             f.write(plik);
             f.close();
-            JOptionPane.showMessageDialog(null, "Pomyślnie dodano model");
+            JOptionPane.showMessageDialog(null, "Pomyślnie dodano Ograniczenie");
             setVisible(false);
             dispose();
         } catch (IOException ex) {
