@@ -397,10 +397,14 @@ public class MainWindow extends javax.swing.JFrame {
   private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
       //Wnioskowanie
       Silnik engine = new Silnik();
+      System.out.println("Objawy list size: " + objawyList.size());
       engine.daneWejscioweArray = objawyList;
 
       engine.read(modeleXML.getPath(), regulyXML.getPath(), wykluczeniaXML.getPath()); //ścieżki do plików: modelu, zasad i ograniczeń
       engine.parse(); //parsowanie xmla
+      System.out.println("Models array size: "+engine.modelsArray.size());
+      System.out.println("Rules array size: "+engine.rulesArray.size());
+      System.out.println("Const. array size: "+engine.constraintsArray.size());
       engine.runn(); //uruchomienie wnioskowania
       System.out.println(engine.kroki.size());
     //wyświetlenie co z czego zostało wywnioskowane:
