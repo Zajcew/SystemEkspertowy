@@ -2,6 +2,9 @@ package newpackage;
 
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 public class Silnik {
 
@@ -15,7 +18,7 @@ public class Silnik {
     public ArrayList<DaneWejsciowe> daneWejscioweArray;
     public FactDataBase baza;
     public Parser parser;
-    
+
     public ArrayList<Rules> kroki;
 
     public Silnik() {
@@ -29,6 +32,7 @@ public class Silnik {
     }
 
     public void read(String models, String rules, String constraint) {
+        System.out.println("wchodze do read");
         modelsPath = models;
         rulesPath = rules;
         constraintsPath = constraint;
@@ -50,8 +54,6 @@ public class Silnik {
 //        t3.CF = 0.3f;
 //        t3.value = "pobyt tropiki";
 //        factsArray.add(t3);
-        
-
  //       Constraints c = new Constraints();
 //        c.lista.add("tem3");
 //        c.lista.add("tem4");
@@ -91,20 +93,19 @@ public class Silnik {
 //        d.argument="temperatura";
 //        d.wartosc = 36.0f;
 //        daneWejscioweArray.add(d);
-
+        System.out.println("wchodze do parsera");
         parser = new Parser();
         parser.toParse(modelsPath, rulesPath, constraintsPath);
         modelsArray = Parser.modelsList;
         rulesArray = Parser.rulesList;
         constraintsArray = Parser.restrictionsList;
-        
+
 //
 //        for (Rules rul : rulesArray) {
 //            for (String str : rul.warunki) {
 //                System.out.println("OK: "+str);
 //            }
 //        }
-
     }
 
     private boolean czyIstnieje(String zasada, ArrayList<Fact> factArray) {
@@ -118,8 +119,20 @@ public class Silnik {
 
     private String askAboutConstraint(ArrayList<String> constraint) {
 
-        Random rand = new Random();
-        return constraint.get(rand.nextInt() % constraint.size());
+        JFrame ograniczenie = new JFrame("wybierz");
+        ograniczenie.setVisible(true);
+        ograniczenie.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        ograniczenie.setSize(500, 200);
+        ograniczenie.setLocationRelativeTo(null);
+        ograniczenie.setAlwaysOnTop(true);
+        JComboBox combo=new JComboBox(constraint.toArray());
+        ograniczenie.add(combo);
+        
+
+        
+
+        return constraint.get(combo.getSelectedIndex());
+        
     }
 
     @Deprecated
@@ -162,18 +175,18 @@ public class Silnik {
             }
         }
     }
-    
+
     private float min(ArrayList<String> lista) {
         float mini = 3;
         for (String string : lista) {
             for (Fact fact : baza.lista) {
-                if (string.equals(fact.value))
-                    mini = mini>fact.CF ? fact.CF : mini;
+                if (string.equals(fact.value)) {
+                    mini = mini > fact.CF ? fact.CF : mini;
+                }
             }
         }
         return mini;
     }
-    
 
     public void runn() {
         baza = new FactDataBase();
@@ -181,8 +194,7 @@ public class Silnik {
         int dlugoscListy = baza.lista.size();
         int poprzedniaDlugoscListy = 0;
         int iluNieMa = 0;
-
-
+        System.out.println("wchodze do silnika");
         wywiad();
         while (dlugoscListy != poprzedniaDlugoscListy) {
 
@@ -198,13 +210,13 @@ public class Silnik {
                     }
                 }
                 if (iluNieMa == 0) {
-                    
+
                     float minimum = min(zasady.warunki);
                     if (zasady.kumulatywna == true) {
-                        baza.addCumulative(zasady.wniosek, zasady.CF*minimum);
+                        baza.addCumulative(zasady.wniosek, zasady.CF * minimum);
                         kroki.add(zasady);
                     } else if (zasady.kumulatywna == false) {
-                        System.out.println("  "+zasady.wniosek+" "+zasady.kumulatywna);
+                        System.out.println("  " + zasady.wniosek + " " + zasady.kumulatywna);
                         if (baza.addDisjunctive(rulesPath, zasady.CF, minimum)) {
                             kroki.add(zasady);
                         }
@@ -266,7 +278,7 @@ public class Silnik {
                         //ograniczenie nie jest wnioskiem w żadnej regule...
                         if (!doubleBreaker) {
                             //...trzeba więc zapytać usera
-                            baza.addCumulative(askAboutConstraint(ograniczenie.lista),1.0f);
+                            baza.addCumulative(askAboutConstraint(ograniczenie.lista), 1.0f);
                         }
                     }
                 }
@@ -285,6 +297,5 @@ public class Silnik {
 //            }
 //            System.out.println("=> "+r.wniosek);
 //        }
-
     }
 }
