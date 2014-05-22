@@ -24,8 +24,8 @@ public class Parser {
             // TODO code application logic here
             System.out.println("[ Ścieżki do plików ]\n");
             String modelsDir = modell;//System.getProperty("user.dir")+"/sample files/models.xml";
-            String restrictionsDir = reguly;//System.getProperty("user.dir")+"/sample files/restrictions.xml";
-            String rulesDir = ograniczenia;//System.getProperty("user.dir")+"/sample files/rules.xml";
+            String restrictionsDir = ograniczenia;//System.getProperty("user.dir")+"/sample files/restrictions.xml";
+            String rulesDir = reguly;//System.getProperty("user.dir")+"/sample files/rules.xml";
             System.out.println("Models dir: "+modelsDir);
             System.out.println("Restrictions dir: "+restrictionsDir);
             System.out.println("Rules dir: "+rulesDir+"\n");
