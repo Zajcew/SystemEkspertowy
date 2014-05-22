@@ -65,6 +65,7 @@ public class Parser {
                             parametersList.add(Float.parseFloat(((Element)parameter.get(k)).getText().replaceAll(" ", "")));
                         }                     
                 }
+                System.out.println(conclusion);
                 modelsList.add(new Model(conclusion, argument, parametersList, operatorsList));
             }
             // Model - KONIEC
@@ -121,6 +122,7 @@ public class Parser {
                             exclusionsList.add(((Element)exclusion.get(k)).getText());
                         }                     
                 }               
+                System.out.println(name);
                 restrictionsList.add(new Constraints(name, exclusionsList));
             }
             // Ograniczenia - KONIEC

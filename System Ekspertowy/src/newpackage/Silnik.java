@@ -209,15 +209,18 @@ public class Silnik {
                         iluNieMa++;
                     }
                 }
+                System.out.println("przed iluNieMa == 0");
                 if (iluNieMa == 0) {
-
+                    System.out.println("po iluNieMa");
                     float minimum = min(zasady.warunki);
                     if (zasady.kumulatywna == true) {
                         baza.addCumulative(zasady.wniosek, zasady.CF * minimum);
+                        System.out.println("add kroki 1 if");
                         kroki.add(zasady);
                     } else if (zasady.kumulatywna == false) {
                         System.out.println("  " + zasady.wniosek + " " + zasady.kumulatywna);
                         if (baza.addDisjunctive(rulesPath, zasady.CF, minimum)) {
+                            System.out.println("add kroki 2 if");
                             kroki.add(zasady);
                         }
                     }
