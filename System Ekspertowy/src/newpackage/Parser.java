@@ -4,13 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
-import org.jdom2.xpath.XPath;
 
 
 
@@ -23,9 +20,9 @@ public class Parser {
        try {
             // TODO code application logic here
             System.out.println("[ Ścieżki do plików ]\n");
-            String modelsDir = modell;//System.getProperty("user.dir")+"/sample files/models.xml";
-            String restrictionsDir = ograniczenia;//System.getProperty("user.dir")+"/sample files/restrictions.xml";
-            String rulesDir = reguly;//System.getProperty("user.dir")+"/sample files/rules.xml";
+            String modelsDir = modell;//System.getProperty("user.dir")+"/model.xml";
+            String restrictionsDir = ograniczenia;//System.getProperty("user.dir")+"/ograniczenia.xml";
+            String rulesDir = reguly;//System.getProperty("user.dir")+"/reguly.xml";
             System.out.println("Models dir: "+modelsDir);
             System.out.println("Restrictions dir: "+restrictionsDir);
             System.out.println("Rules dir: "+rulesDir+"\n");
@@ -65,7 +62,6 @@ public class Parser {
                             parametersList.add(Float.parseFloat(((Element)parameter.get(k)).getText().replaceAll(" ", "")));
                         }                     
                 }
-                System.out.println(conclusion);
                 modelsList.add(new Model(conclusion, argument, parametersList, operatorsList));
             }
             // Model - KONIEC
@@ -122,7 +118,6 @@ public class Parser {
                             exclusionsList.add(((Element)exclusion.get(k)).getText());
                         }                     
                 }               
-                System.out.println(name);
                 restrictionsList.add(new Constraints(name, exclusionsList));
             }
             // Ograniczenia - KONIEC

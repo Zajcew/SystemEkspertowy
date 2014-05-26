@@ -9,5 +9,4 @@ public class DaneWejsciowe {
     this.wartosc = wartosc;
     this.argument = argument;
   }
-    
 }

@@ -1,5 +1,4 @@
 package newpackage;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,11 +10,12 @@ public class Model {
     public ArrayList<Float> parametry = new ArrayList<Float>();
 
     public boolean is(float a, String operator, float parametr) {
-        if (operator.equals("&gt")) {
+     // System.out.println(operator+"   "+parametr);
+        if (operator.equals(">")) {
             return a > parametr;
         } else if (operator.equals("&gt=")) {
             return a >= parametr;
-        } else if (operator.equals("&lt")) {
+        } else if (operator.equals("<")) {
             return a < parametr;
         } else if (operator.equals("&lt=")) {
             return a <= parametr;

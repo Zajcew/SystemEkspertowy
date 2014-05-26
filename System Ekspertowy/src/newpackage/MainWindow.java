@@ -5,6 +5,7 @@
  */
 package newpackage;
 
+
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -412,7 +413,7 @@ public class MainWindow extends javax.swing.JFrame {
           for (String str : r.warunki) {
               System.out.print(str + " + ");
           }
-          System.out.println("=> " + r.wniosek);
+          System.out.println("=> " + r.wniosek + " CF: "+r.CF);
           
       }
 
