@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- komentarz -->
+
+<ograniczenia>
+	<ograniczenie>
+		<nr>1</nr>
+		<nazwa>WBC</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma WBC</wykluczenie>
+			<wykluczenie>Podwyzszone WBC</wykluczenie>
+			<wykluczenie>Obnizone WBC</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
+	<ograniczenie>
+		<nr>2</nr>
+		<nazwa>RBC</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma RBC Kobieta</wykluczenie>
+			<wykluczenie>Podwyzszone RBC Kobieta</wykluczenie>
+			<wykluczenie>Obnizone RBC Kobieta</wykluczenie>
+			<wykluczenie>Norma RBC Mezczyzna</wykluczenie>
+			<wykluczenie>Podwyzszone RBC Mezczyzna</wykluczenie>
+			<wykluczenie>Obnizone RBC Mezczyzna</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
+	<ograniczenie>
+		<nr>3</nr>
+		<nazwa>HGB</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma HGB Kobieta</wykluczenie>
+			<wykluczenie>Podwyzszone HGB Kobieta</wykluczenie>
+			<wykluczenie>Obnizone HGB Kobieta</wykluczenie>
+			<wykluczenie>Norma HGB Mezczyzna</wykluczenie>
+			<wykluczenie>Podwyzszone HGB Mezczyzna</wykluczenie>
+			<wykluczenie>Obnizone HGB Mezczyzna</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
+	<ograniczenie>
+		<nr>4</nr>
+		<nazwa>HCT</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma HCT Kobieta</wykluczenie>
+			<wykluczenie>Podwyzszone HCT Kobieta</wykluczenie>
+			<wykluczenie>Obnizone HCT Kobieta</wykluczenie>
+			<wykluczenie>Norma HCT Mezczyzna</wykluczenie>
+			<wykluczenie>Podwyzszone HCT Mezczyzna</wykluczenie>
+			<wykluczenie>Obnizone HCT Mezczyzna</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
+	<ograniczenie>
+		<nr>5</nr>
+		<nazwa>MCV</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma MCV Kobieta</wykluczenie>
+			<wykluczenie>Podwyzszone MCV Kobieta</wykluczenie>
+			<wykluczenie>Obnizone MCV Kobieta</wykluczenie>
+			<wykluczenie>Norma MCV Mezczyzna</wykluczenie>
+			<wykluczenie>Podwyzszone MCV Mezczyzna</wykluczenie>
+			<wykluczenie>Obnizone MCV Mezczyzna</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
+	<ograniczenie>
+		<nr>6</nr>
+		<nazwa>MCH</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma MCH</wykluczenie>
+			<wykluczenie>Podwyzszone MCH</wykluczenie>
+			<wykluczenie>Obnizone MCH</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
+	<ograniczenie>
+		<nr>7</nr>
+		<nazwa>MCHC</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma MCHC</wykluczenie>
+			<wykluczenie>Podwyzszone MCHC</wykluczenie>
+			<wykluczenie>Obnizone MCHC</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
+	<ograniczenie>
+		<nr>8</nr>
+		<nazwa>RDW</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma RDW</wykluczenie>
+			<wykluczenie>Podwyzszone RDW</wykluczenie>
+			<wykluczenie>Obnizone RDW</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
+	<ograniczenie>
+		<nr>9</nr>
+		<nazwa>PLT</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma PLT</wykluczenie>
+			<wykluczenie>Podwyzszone PLT</wykluczenie>
+			<wykluczenie>Obnizone PLT</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
+	<ograniczenie>
+		<nr>10</nr>
+		<nazwa>MPV</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma MPV</wykluczenie>
+			<wykluczenie>Podwyzszone MPV</wykluczenie>
+			<wykluczenie>Obnizone MPV</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
+	<ograniczenie>
+		<nr>11</nr>
+		<nazwa>PCT</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma PCT</wykluczenie>
+			<wykluczenie>Podwyzszone PCT</wykluczenie>
+			<wykluczenie>Obnizone PCT</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
+	<ograniczenie>
+		<nr>12</nr>
+		<nazwa>PDW</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma PDW</wykluczenie>
+			<wykluczenie>Podwyzszone PDW</wykluczenie>
+			<wykluczenie>Obnizone PDW</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
+	<ograniczenie>
+		<nr>13</nr>
+		<nazwa>NEU%</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma NEU%</wykluczenie>
+			<wykluczenie>Podwyzszone NEU%</wykluczenie>
+			<wykluczenie>Obnizone NEU%</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
+</ograniczenia>

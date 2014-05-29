@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- komentarz -->
+
+<modele>
+  <model typ="rozszerzony">
+    <nr>1</nr>
+    <wniosek>Norma WBC</wniosek>
+    <argument>WBC</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+		<parametr>4500</parametr>
+        <parametr>10000</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>2</nr>
+    <wniosek>Norma RBC Kobieta</wniosek>
+    <argument>RBC</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>4.2</parametr>
+        <parametr>5.4</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>3</nr>
+    <wniosek>Norma RBC Mezczyzna</wniosek>
+    <argument>RBC</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>4.5</parametr>
+        <parametr>5.9</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>4</nr>
+    <wniosek>Norma HGB Kobieta</wniosek>
+    <argument>HGB</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>12</parametr>
+        <parametr>16</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>5</nr>
+    <wniosek>Norma HGB Mezczyzna</wniosek>
+    <argument>HGB</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>14</parametr>
+        <parametr>18</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>6</nr>
+    <wniosek>Norma HCT Kobieta</wniosek>
+    <argument>HCT</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>0.4</parametr>
+        <parametr>0.51</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>7</nr>
+    <wniosek>Norma HCT Mezczyzna</wniosek>
+    <argument>HCT</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>0.4</parametr>
+        <parametr>0.54</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>8</nr>
+    <wniosek>Norma MCV Kobieta</wniosek>
+    <argument>MCV</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>81</parametr>
+        <parametr>99</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>9</nr>
+    <wniosek>Norma MCV Mezczyzna</wniosek>
+    <argument>MCV</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>80</parametr>
+        <parametr>94</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>10</nr>
+    <wniosek>Norma MCH</wniosek>
+    <argument>MCH</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>27</parametr>
+        <parametr>31</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>11</nr>
+    <wniosek>Norma MCHC</wniosek>
+    <argument>MCHC</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>33</parametr>
+        <parametr>37</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>12</nr>
+    <wniosek>Norma RDW</wniosek>
+    <argument>RDW</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>11.5</parametr>
+        <parametr>14.5</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>13</nr>
+    <wniosek>Norma PLT</wniosek>
+    <argument>PLT</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>140</parametr>
+        <parametr>450</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>14</nr>
+    <wniosek>Norma MPV</wniosek>
+    <argument>MPV</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>7.5</parametr>
+        <parametr>10.5</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>15</nr>
+    <wniosek>Norma PCT</wniosek>
+    <argument>PCT</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>0.14</parametr>
+        <parametr>0.36</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>16</nr>
+    <wniosek>Norma PDW</wniosek>
+    <argument>PDW</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>15.5</parametr>
+        <parametr>17</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>17</nr>
+    <wniosek>Norma NEU%</wniosek>
+    <argument>NEU%</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>1.25</parametr>
+        <parametr>9.3</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>18</nr>
+    <wniosek>Norma MON%</wniosek>
+    <argument>MON%</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>0.1</parametr>
+        <parametr>0.87</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>19</nr>
+    <wniosek>Norma LYM%</wniosek>
+    <argument>LYM%</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>0.91</parametr>
+        <parametr>5.3</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>20</nr>
+    <wniosek>Norma BAS%</wniosek>
+    <argument>BAS%</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>0</parametr>
+        <parametr>0.26</parametr>
+    </parametry>
+  </model>
+  <model typ="rozszerzony">
+    <nr>21</nr>
+    <wniosek>Norma ALY%</wniosek>
+    <argument>ALY%</argument>
+    <operatory>
+        <operator>&gt;</operator>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>0</parametr>
+        <parametr>0.22</parametr>
+    </parametry>
+  </model>
+  
+  <model typ="prosty">
+    <nr>24</nr>
+    <wniosek>Podwyzszone WBC</wniosek>
+    <argument>WBC</argument>
+    <operatory>
+        <operator>&gt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>10000</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>25</nr>
+    <wniosek>Podwyzszone RBC Kobieta</wniosek>
+    <argument>RBC</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>5.4</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>26</nr>
+    <wniosek>Podwyzszone RBC Mezczyzna</wniosek>
+    <argument>RBC</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>5.9</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>27</nr>
+    <wniosek>Podwyzszone HGB Kobieta</wniosek>
+    <argument>HGB</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>16</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>28</nr>
+    <wniosek>Podwyzszone HGB Mezczyzna</wniosek>
+    <argument>HGB</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>18</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>29</nr>
+    <wniosek>Podwyzszone HCT Kobieta</wniosek>
+    <argument>HCT</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>0.51</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>30</nr>
+    <wniosek>Podwyzszone HCT Mezczyzna</wniosek>
+    <argument>HCT</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>0.54</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>31</nr>
+    <wniosek>Podwyzszone MCV Kobieta</wniosek>
+    <argument>MCV</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>99</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>32</nr>
+    <wniosek>Podwyzszone MCV Mezczyzna</wniosek>
+    <argument>MCV</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>94</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>33</nr>
+    <wniosek>Podwyzszone MCH</wniosek>
+    <argument>MCH</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>31</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>34</nr>
+    <wniosek>Podwyzszone MCHC</wniosek>
+    <argument>MCHC</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>37</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>35</nr>
+    <wniosek>Podwyzszone RDW</wniosek>
+    <argument>RDW</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>14.5</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>36</nr>
+    <wniosek>Podwyzszone PLT</wniosek>
+    <argument>PLT</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>450</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>37</nr>
+    <wniosek>Podwyzszone MPV</wniosek>
+    <argument>MPV</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>10.5</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>38</nr>
+    <wniosek>Podwyzszone PCT</wniosek>
+    <argument>PCT</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>0.36</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>39</nr>
+    <wniosek>Podwyzszone PDW</wniosek>
+    <argument>PDW</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>17</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>40</nr>
+    <wniosek>Podwyzszone NEU%</wniosek>
+    <argument>NEU%</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>9.3</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>41</nr>
+    <wniosek>Podwyzszone MON%</wniosek>
+    <argument>MON%</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>0.87</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>42</nr>
+    <wniosek>Podwyzszone LYM%</wniosek>
+    <argument>LYM%</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>5.3</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>43</nr>
+    <wniosek>Podwyzszone BAS%</wniosek>
+    <argument>BAS%</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>0.26</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>44</nr>
+    <wniosek>Podwyzszone ALY%</wniosek>
+    <argument>ALY%</argument>
+    <operatory>
+        <operator>&gt;</operator>        
+    </operatory>
+    <parametry>
+        <parametr>0.22</parametr>
+    </parametry>
+  </model>
+  
+  <model typ="prosty">
+    <nr>47</nr>
+    <wniosek>Obnizone WBC</wniosek>
+    <argument>WBC</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>4500</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>48</nr>
+    <wniosek>Obnizone RBC Kobieta</wniosek>
+    <argument>RBC</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>4.2</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>49</nr>
+    <wniosek>Obnizone RBC Mezczyzna</wniosek>
+    <argument>RBC</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>4.5</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>50</nr>
+    <wniosek>Obnizone HGB Kobieta</wniosek>
+    <argument>HGB</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>12</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>51</nr>
+    <wniosek>Obnizone HGB Mezczyzna</wniosek>
+    <argument>HGB</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>14</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>52</nr>
+    <wniosek>Obnizone HCT Kobieta</wniosek>
+    <argument>HCT</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>0.4</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>53</nr>
+    <wniosek>Obnizone HCT Mezczyzna</wniosek>
+    <argument>HCT</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>0.4</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>54</nr>
+    <wniosek>Obnizone MCV Kobieta</wniosek>
+    <argument>MCV</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>81</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>55</nr>
+    <wniosek>Obnizone MCV Mezczyzna</wniosek>
+    <argument>MCV</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>80</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>55</nr>
+    <wniosek>Obnizone MCH</wniosek>
+    <argument>MCH</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>27</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>56</nr>
+    <wniosek>Obnizone MCHC</wniosek>
+    <argument>MCHC</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>33</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>57</nr>
+    <wniosek>Obnizone RDW</wniosek>
+    <argument>RDW</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>11.5</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>58</nr>
+    <wniosek>Obnizone PLT</wniosek>
+    <argument>PLT</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>140</parametr>
+        <parametr>450</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>59</nr>
+    <wniosek>Obnizone MPV</wniosek>
+    <argument>MPV</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>7.5</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>60</nr>
+    <wniosek>Obnizone PCT</wniosek>
+    <argument>PCT</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>0.14</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>61</nr>
+    <wniosek>Obnizone PDW</wniosek>
+    <argument>PDW</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>15.5</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>62</nr>
+    <wniosek>Obnizone NEU%</wniosek>
+    <argument>NEU%</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>1.25</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>63</nr>
+    <wniosek>Obnizone MON%</wniosek>
+    <argument>MON%</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>0.1</parametr>
+    </parametry>
+  </model>
+  <model typ="prosty">
+    <nr>64</nr>
+    <wniosek>Obnizone LYM%</wniosek>
+    <argument>LYM%</argument>
+    <operatory>
+        <operator>&lt;</operator>
+    </operatory>
+    <parametry>
+        <parametr>0.91</parametr>
+    </parametry>
+  </model>
+ </modele>
+

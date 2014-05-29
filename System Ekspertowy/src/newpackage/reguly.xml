@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- komentarz -->
+
+<reguly>
+  <!-- Agregaty plytkowe ZAJECIA -->
+  <regula>
+	<nr>1</nr>
+	<wniosek>Agregaty Plytkowe</wniosek>
+	<objawy>
+    	<objaw>Obnizone PLT</objaw>
+    	<objaw>Obnizone PCT</objaw>
+    	<objaw>Podwyzszone PDW</objaw>
+	</objawy>
+	<cf>1</cf>
+	<kumulatywna>false</kumulatywna>
+  </regula>
+  <regula>
+	<nr>2</nr>
+	<wniosek>Agregaty Plytkowe</wniosek>
+	<objawy>
+    	<objaw>Obnizone PLT</objaw>
+	</objawy>
+	<cf>0.3</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>  
+  <regula>
+	<nr>3</nr>
+	<wniosek>Agregaty Plytkowe</wniosek>
+	<objawy>
+    	<objaw>Obnizone PCT</objaw>
+	</objawy>
+	<cf>0.3</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>4</nr>
+	<wniosek>Agregaty Plytkowe</wniosek>
+	<objawy>
+    	<objaw>Podwyzszone PDW</objaw>
+	</objawy>
+	<cf>0.3</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+    
+  <!-- Maloplytkowosc MONIKA KOZAK -->
+  <regula>
+	<nr>5</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Obnizone PLT</objaw>
+    	<objaw>Obnizone PCT</objaw>
+    	<objaw>Podwyzszone PDW</objaw>
+	</objawy>
+	<cf>1</cf>
+	<kumulatywna>false</kumulatywna>
+  </regula>
+  <regula>
+	<nr>6</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Obnizone PLT</objaw>
+	</objawy>
+	<cf>0.3</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>7</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Obnizone PCT</objaw>
+	</objawy>
+	<cf>0.3</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>8</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Podwyzszone PDW</objaw>
+	</objawy>
+	<cf>0.3</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  
+  <!-- Niedokrwistosc pokrwotoczna MONIKA KOZAK -->
+  <regula>
+	<nr>9</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Podwyzszone WBC</objaw>
+    	<objaw>Podwyzszone MCV Kobieta</objaw>
+    	<objaw>Podwyzszone PDW</objaw>
+		<objaw>Podwyzszone NEU%</objaw>
+    	<objaw>Podwyzszone MON%</objaw>
+    	<objaw>Podwyzszone LYM%</objaw>
+    	<objaw>Podwyzszone ALY%</objaw>
+    	<objaw>Obnizone RBC Kobieta</objaw>
+    	<objaw>Obnizone HGB Kobieta</objaw>
+    	<objaw>Obnizone HCT Kobieta</objaw>
+    	<objaw>Obnizone PLT</objaw>
+    	<objaw>Obnizone PCT</objaw>
+	</objawy>
+	<cf>1</cf>
+	<kumulatywna>false</kumulatywna>
+  </regula>
+  <regula>
+	<nr>10</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Podwyzszone WBC</objaw>
+    	<objaw>Podwyzszone MCV Mezczyzna</objaw>
+    	<objaw>Podwyzszone PDW</objaw>
+		<objaw>Podwyzszone NEU%</objaw>
+    	<objaw>Podwyzszone MON%</objaw>
+    	<objaw>Podwyzszone LYM%</objaw>
+    	<objaw>Podwyzszone ALY%</objaw>
+    	<objaw>Obnizone RBC Mezczyzna</objaw>
+    	<objaw>Obnizone HGB Mezczyzna</objaw>
+    	<objaw>Obnizone HCT Mezczyzna</objaw>
+    	<objaw>Obnizone PLT</objaw>
+    	<objaw>Obnizone PCT</objaw>
+	</objawy>
+	<cf>1</cf>
+	<kumulatywna>false</kumulatywna>
+  </regula>
+  <regula>
+	<nr>11</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Podwyzszone WBC</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>12</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Podwyzszone MCV Mezczyzna</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>13</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Podwyzszone MCV Kobieta</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>14</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Podwyzszone PDW</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>15</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+		<objaw>Podwyzszone NEU%</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>16</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Podwyzszone MON%</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>17</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Podwyzszone LYM%</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>18</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Podwyzszone ALY%</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>19</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Obnizone RBC Mezczyzna</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>20</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Obnizone RBC Kobieta</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>21</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Obnizone HGB Mezczyzna</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>22</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Obnizone HGB Kobieta</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>23</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Obnizone HCT Mezczyzna</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>24</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Obnizone HCT Kobieta</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>25</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Obnizone PLT</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  <regula>
+	<nr>26</nr>
+	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+	<objawy>
+    	<objaw>Obnizone PCT</objaw>
+	</objawy>
+	<cf>0.08</cf>
+	<kumulatywna>true</kumulatywna>
+  </regula>
+  
+ </reguly>
