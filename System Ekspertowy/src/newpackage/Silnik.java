@@ -1,55 +1,62 @@
 package newpackage;
 
+import java.awt.Button;
+import java.awt.Frame;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 public class Silnik {
 
-  public String modelsPath;
-  public String rulesPath;
-  public String constraintsPath;
-  public ArrayList<Model> modelsArray;
-  public ArrayList<Rules> rulesArray;
-  public ArrayList<Constraints> constraintsArray;
-  public ArrayList<Fact> factsArray;
-  public ArrayList<DaneWejsciowe> daneWejscioweArray;
-  public FactDataBase baza;
-  public Parser parser;
-  public ArrayList<Rules> kroki;
+    public String modelsPath;
+    public String rulesPath;
+    public String constraintsPath;
+    public ArrayList<Model> modelsArray;
+    public ArrayList<Rules> rulesArray;
+    public ArrayList<Constraints> constraintsArray;
+    public ArrayList<Fact> factsArray;
+    public ArrayList<DaneWejsciowe> daneWejscioweArray;
+    public FactDataBase baza;
+    public Parser parser;
+    public ArrayList<Rules> kroki;
 
-  public Silnik() {
-    modelsArray = new ArrayList<Model>();
-    rulesArray = new ArrayList<Rules>();
-    constraintsArray = new ArrayList<Constraints>();
-    factsArray = new ArrayList<Fact>();
-    daneWejscioweArray = new ArrayList<DaneWejsciowe>();
-    baza = new FactDataBase();
-    kroki = new ArrayList<Rules>();
-  }
+    public Silnik() {
+        modelsArray = new ArrayList<Model>();
+        rulesArray = new ArrayList<Rules>();
+        constraintsArray = new ArrayList<Constraints>();
+        factsArray = new ArrayList<Fact>();
+        daneWejscioweArray = new ArrayList<DaneWejsciowe>();
+        baza = new FactDataBase();
+        kroki = new ArrayList<Rules>();
+    }
 
-  public void read(String models, String rules, String constraint) {
-    modelsPath = models;
-    rulesPath = rules;
-    constraintsPath = constraint;
-  }
+    public void read(String models, String rules, String constraint) {
+        modelsPath = models;
+        rulesPath = rules;
+        constraintsPath = constraint;
+    }
 
-  public void parse() {
-    /*
-     Fact t = new Fact();
-     t.CF = 0.5f;
-     t.value = "Obnizone PLT";
-     factsArray.add(t);
+    public void parse() {
+        /*
+         Fact t = new Fact();
+         t.CF = 0.5f;
+         t.value = "Obnizone PLT";
+         factsArray.add(t);
 
-     Fact t2 = new Fact();
-     t2.CF = 0.3f;
-     t2.value = "Obnizone PCT";
-     factsArray.add(t2);
+         Fact t2 = new Fact();
+         t2.CF = 0.3f;
+         t2.value = "Obnizone PCT";
+         factsArray.add(t2);
 
-     Fact t3 = new Fact();
-     t3.CF = 0.3f;
-     t3.value = "pobyt tropiki";
-     factsArray.add(t3);
-     */
+         Fact t3 = new Fact();
+         t3.CF = 0.3f;
+         t3.value = "pobyt tropiki";
+         factsArray.add(t3);
+         */
 
     //       Constraints c = new Constraints();
 //        c.lista.add("tem3");
@@ -90,207 +97,205 @@ public class Silnik {
 //        d.argument="temperatura";
 //        d.wartosc = 36.0f;
 //        daneWejscioweArray.add(d);
-
-    parser = new Parser();
-    parser.toParse(modelsPath, rulesPath, constraintsPath);
-    modelsArray = Parser.modelsList;
-    rulesArray = Parser.rulesList;
-    System.out.println(rulesArray.size() + "  @ " + Parser.rulesList.size());
-    constraintsArray = Parser.restrictionsList;
+        parser = new Parser();
+        parser.toParse(modelsPath, rulesPath, constraintsPath);
+        modelsArray = Parser.modelsList;
+        rulesArray = Parser.rulesList;
+        System.out.println(rulesArray.size() + "  @ " + Parser.rulesList.size());
+        constraintsArray = Parser.restrictionsList;
 
     //System.out.println("blablabla: " + rulesArray.size());
-
 //
 //        for (Rules rul : rulesArray) {
 //            for (String str : rul.warunki) {
 //                System.out.println("OK: "+str);
 //            }
 //        }
-
-  }
-
-  private boolean czyIstnieje(String zasada, ArrayList<Fact> factArray) {
-    for (Fact fact : factArray) {
-      if (fact.value.equals(zasada)) {
-        return 1 == 1;
-      }
     }
-    return false;
-  }
 
-  private String askAboutConstraint(ArrayList<String> constraint) {
-
-//        Random rand = new Random();
-//        return constraint.get(rand.nextInt() % constraint.size());
-    return "";
-  }
-
-  @Deprecated
-  private boolean ifConstraint(String warunek, ArrayList<Constraints> constraintsArray) {
-    for (Constraints constraints : constraintsArray) {
-      for (String string : constraints.lista) {
-        if (warunek.equals(string)) {
-          return 1 == 1;
-        }
-      }
-    }
-    return 1 == 314159265;
-  }
-
-  private Constraints findConstraint(String s, ArrayList<Constraints> constraintsArray) {
-    for (Constraints constraints : constraintsArray) {
-      for (String string : constraints.lista) {
-        if (s.equals(string)) {
-          return constraints;
-        }
-      }
-    }
-    return null;
-  }
-
-  public void wywiad() {
-    String pom;
-    System.out.println("models: " + modelsArray.size());
-    for (DaneWejsciowe daneWejsciowe : daneWejscioweArray) {
-      for (Model model : modelsArray) {
-        if (daneWejsciowe.argument.equalsIgnoreCase(model.argument)) {
-          pom = model.oblicz(daneWejsciowe.wartosc);
-          if (pom != null) {
-            Fact f = new Fact();
-            f.CF = 1.0f;
-            f.value = pom;
-            factsArray.add(f);
-            break;
-          }
-        }
-      }
-    }
-  }
-
-  private float min(ArrayList<String> lista) {
-    float mini = 3;
-    for (String string : lista) {
-      for (Fact fact : baza.lista) {
-        if (string.equals(fact.value)) {
-          mini = mini > fact.CF ? fact.CF : mini;
-        }
-      }
-    }
-    return mini;
-  }
-
-  public void runn() {
-    baza = new FactDataBase();
-
-
-
-
-    wywiad();
-    baza.lista = factsArray;
-    int dlugoscListy = baza.lista.size();
-    int poprzedniaDlugoscListy = 0;
-    int iluNieMa = 0;
-    System.out.println(baza.lista.size() + " sd");
-    System.out.println("11");
-    while (dlugoscListy != poprzedniaDlugoscListy) {
-      System.out.println(rulesArray.size());
-      Rules zasady;
-      //for (Rules zasady : rulesArray) {
-      for (int i = 0; i < rulesArray.size(); i++) {
-        System.out.println("1.5555");
-        zasady = rulesArray.get(i);
-        iluNieMa = 0;
-        //sprawdzenie, czy mozemy wywnioskowac daną zasadę (czy w liście factsArray posiadamy wszystkie elementy z zasady.warunki)
-        for (String str : zasady.warunki) {
-          if (!czyIstnieje(str, factsArray)) {   //cos w tym stylu
-            iluNieMa++;
-          }
-        }
-        if (iluNieMa == 0) {
-          System.out.println("222");
-          float minimum = min(zasady.warunki);
-          if (zasady.kumulatywna == true) {
-            baza.addCumulative(zasady.wniosek, zasady.CF * minimum);
-            Rules z = zasady;
-            z.CF = baza.lista.get(baza.lista.size() - 1).CF;
-            kroki.add(z);
-          } else if (zasady.kumulatywna == false) {
-            System.out.println("  " + zasady.wniosek + " " + zasady.kumulatywna);
-            if (baza.addDisjunctive(rulesPath, zasady.CF, minimum)) {
-              //zasady.CF = baza.lista.
-              Rules z = zasady;
-              z.CF = baza.lista.get(baza.lista.size() - 1).CF;
-              kroki.add(z);
+    private boolean czyIstnieje(String zasada, ArrayList<Fact> factArray) {
+        for (Fact fact : factArray) {
+            if (fact.value.equals(zasada)) {
+                return 1 == 1;
             }
-          }
+        }
+        return false;
+    }
+
+    private String askAboutConstraint(ArrayList<String> constraint) {
+
+        String tresc = "";
+        //wariant 1
+        for (String string : constraint) {
+            return string;
+        }
+
+        return JOptionPane.showInputDialog("Wybierz: " + tresc);
+    }
+
+    @Deprecated
+    private boolean ifConstraint(String warunek, ArrayList<Constraints> constraintsArray) {
+        for (Constraints constraints : constraintsArray) {
+            for (String string : constraints.lista) {
+                if (warunek.equals(string)) {
+                    return 1 == 1;
+                }
+            }
+        }
+        return 1 == 314159265;
+    }
+
+    private Constraints findConstraint(String s, ArrayList<Constraints> constraintsArray) {
+        for (Constraints constraints : constraintsArray) {
+            for (String string : constraints.lista) {
+                if (s.equals(string)) {
+                    return constraints;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void wywiad() {
+        String pom;
+        System.out.println("models: " + modelsArray.size());
+        for (DaneWejsciowe daneWejsciowe : daneWejscioweArray) {
+            for (Model model : modelsArray) {
+                if (daneWejsciowe.argument.equalsIgnoreCase(model.argument)) {
+                    pom = model.oblicz(daneWejsciowe.wartosc);
+                    if (pom != null) {
+                        Fact f = new Fact();
+                        f.CF = 1.0f;
+                        f.value = pom;
+                        factsArray.add(f);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    private float min(ArrayList<String> lista) {
+        float mini = 3;
+        for (String string : lista) {
+            for (Fact fact : baza.lista) {
+                if (string.equals(fact.value)) {
+                    mini = mini > fact.CF ? fact.CF : mini;
+                }
+            }
+        }
+        return mini;
+    }
+
+    public void runn() {
+        baza = new FactDataBase();
+
+        wywiad();
+        baza.lista = factsArray;
+        int dlugoscListy = baza.lista.size();
+        int poprzedniaDlugoscListy = 0;
+        int iluNieMa = 0;
+        System.out.println(baza.lista.size() + " sd");
+        System.out.println("11");
+        while (dlugoscListy != poprzedniaDlugoscListy) {
+            System.out.println(rulesArray.size());
+            Rules zasady;
+            //for (Rules zasady : rulesArray) {
+            for (int i = 0; i < rulesArray.size(); i++) {
+                System.out.println("1.5555");
+                zasady = rulesArray.get(i);
+                iluNieMa = 0;
+                //sprawdzenie, czy mozemy wywnioskowac daną zasadę (czy w liście factsArray posiadamy wszystkie elementy z zasady.warunki)
+                for (String str : zasady.warunki) {
+                    if (!czyIstnieje(str, factsArray)) {   //cos w tym stylu
+                        iluNieMa++;
+                    }
+                }
+                if (iluNieMa == 0) {
+                    System.out.println("222");
+                    float minimum = min(zasady.warunki);
+                    if (zasady.kumulatywna == true) {
+                        baza.addCumulative(zasady.wniosek, zasady.CF * minimum);
+                        Rules z = zasady;
+                        z.CF = baza.lista.get(baza.lista.size() - 1).CF;
+                        kroki.add(z);
+                    } else if (zasady.kumulatywna == false) {
+                        System.out.println("  " + zasady.wniosek + " " + zasady.kumulatywna);
+                        if (baza.addDisjunctive(rulesPath, zasady.CF, minimum)) {
+                            //zasady.CF = baza.lista.
+                            Rules z = zasady;
+                            z.CF = baza.lista.get(baza.lista.size() - 1).CF;
+                            kroki.add(z);
+                        }
+                    }
 
           //sprawdzamy, czy reguła jest w ograniczeniach
-          //jeżeli jest, to usuwamy wszystkie reguły w warunkach
-          // których jest sąsiad tego wniosku
-          Constraints ogr = findConstraint(zasady.wniosek, constraintsArray);
+                    //jeżeli jest, to usuwamy wszystkie reguły w warunkach
+                    // których jest sąsiad tego wniosku
+                    Constraints ogr = findConstraint(zasady.wniosek, constraintsArray);
 
-          if (ogr != null) {
-            for (String strin : ogr.lista) {
-              if (strin.equals(zasady.wniosek)) {
-                continue;
-              }
-              for (Rules zasada : rulesArray) {
-                for (String warunek : zasada.warunki) {
-                  if (warunek.equals(strin)) {
-                    rulesArray.remove(zasada);
-                  }
-                }
-              }
-            }
-          }
+                    if (ogr != null) {
+                        for (String strin : ogr.lista) {
+                            if (strin.equals(zasady.wniosek)) {
+                                continue;
+                            }
+                            for (Rules zasada : rulesArray) {
+                                for (String warunek : zasada.warunki) {
+                                    if (warunek.equals(strin)) {
+                                        rulesArray.remove(zasada);
+                                    }
+                                }
+                            }
+                        }
+                    }
 
-          rulesArray.remove(zasady);
+                    rulesArray.remove(zasady);
 
-        } else if (iluNieMa == 1) {
-          System.out.println("sdfsdfsdfsfd");
+                } else if (iluNieMa == 1) {
+                    System.out.println("sdfsdfsdfsfd");
 
-          String pom = "";
+                    String pom = "";
           //
-          //sprawdzamy, czy brakujący warunek nie jest ograniczeniem...
-          //
-          for (String str : zasady.warunki) {
-            if (!czyIstnieje(str, factsArray)) {
-              pom = str;
-            }
-          }
-          Constraints ograniczenie = findConstraint(pom, constraintsArray);
+                    //sprawdzamy, czy brakujący warunek nie jest ograniczeniem...
+                    //
+                    for (String str : zasady.warunki) {
+                        if (!czyIstnieje(str, factsArray)) {
+                            pom = str;
+                        }
+                    }
+                    Constraints ograniczenie = findConstraint(pom, constraintsArray);
           //boolean flaga = ifConstraint(pom);
 
           //
-          //...i jeżeli jest to sprawdzamy czy nie jest przypadkiem wnioskiem w jakiejś regule
-          //
-          boolean doubleBreaker = false;
-          if (ograniczenie != null) {
-            for (String string : ograniczenie.lista) {
-              for (Rules zasada : rulesArray) {
-                if (zasada.wniosek.equals(string)) {
-                  doubleBreaker = true;
-                  break;
+                    //...i jeżeli jest to sprawdzamy czy nie jest przypadkiem wnioskiem w jakiejś regule
+                    //
+                    boolean doubleBreaker = false;
+                    if (ograniczenie != null) {
+                        for (String string : ograniczenie.lista) {
+                            for (Rules zasada : rulesArray) {
+                                if (zasada.wniosek.equals(string)) {
+                                    doubleBreaker = true;
+                                    break;
+                                }
+                            }
+                            if (doubleBreaker) {
+                                break;
+                            }
+                        }
+
+                        //ograniczenie nie jest wnioskiem w żadnej regule...
+                        if (!doubleBreaker) {
+                            //...trzeba więc zapytać usera
+                            System.out.println("tu wchodze do pytania");
+                            baza.addCumulative(askAboutConstraint(ograniczenie.lista), 1.0f);
+                        }
+                    }
                 }
-              }
-              if (doubleBreaker) {
-                break;
-              }
             }
 
-            //ograniczenie nie jest wnioskiem w żadnej regule...
-            if (!doubleBreaker) {
-              //...trzeba więc zapytać usera
-              System.out.println("tu wchodze do pytania");
-              baza.addCumulative(askAboutConstraint(ograniczenie.lista), 1.0f);
-            }
-          }
+            poprzedniaDlugoscListy = dlugoscListy;
+            dlugoscListy = baza.lista.size();
         }
-      }
-
-      poprzedniaDlugoscListy = dlugoscListy;
-      dlugoscListy = baza.lista.size();
-    }
 
 //        for (Fact fact : factsArray) {
 //            System.out.println(fact.value + " CF: " + fact.CF);
@@ -301,6 +306,5 @@ public class Silnik {
 //            }
 //            System.out.println("=> "+r.wniosek);
 //        }
-
-  }
+    }
 }
