@@ -212,7 +212,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu6);
 
-        jMenu7.setText("jMenu7");
+        jMenu7.setText("Tryb auto");
         jMenu7.addMenuDragMouseListener(new javax.swing.event.MenuDragMouseListener() {
             public void menuDragMouseEntered(javax.swing.event.MenuDragMouseEvent evt) {
             }
@@ -230,7 +230,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem13.setText("jMenuItem13");
+        jMenuItem13.setText("wczytaj");
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem13ActionPerformed(evt);
@@ -463,6 +463,16 @@ public class MainWindow extends javax.swing.JFrame {
         regulyXML = new File("reguly.xml");
         modeleXML = new File("model.xml");
         wykluczeniaXML = new File("ograniczenia.xml");
+        
+        jMenuItem10.setEnabled(true);
+        jMenuItem2.setEnabled(true);
+        jMenuItem7.setEnabled(true);
+        jMenuItem4.setEnabled(true);
+        jMenuItem8.setEnabled(true);
+        jMenuItem6.setEnabled(true);
+        jMenuItem9.setEnabled(true);
+        jMenu6.setEnabled(true);
+        jMenuItem12.setEnabled(true);
         
         jMenuItem11ActionPerformed(evt);
 
