@@ -395,6 +395,7 @@ public class MainWindow extends javax.swing.JFrame {
           @Override
           public void actionPerformed(java.awt.event.ActionEvent evt) {
               zatwierdzActionPerformed(evt);
+              objawy.setVisible(false);
           }
 
       //rbc
