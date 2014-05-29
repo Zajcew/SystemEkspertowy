@@ -1,271 +1,1299 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- komentarz -->
+<!-- RBC   HGB  HCT   MCV -->
 
 <reguly>
-  <!-- Agregaty plytkowe ZAJECIA -->
-  <regula>
-	<nr>1</nr>
-	<wniosek>Agregaty Plytkowe</wniosek>
-	<objawy>
-    	<objaw>Obnizone PLT</objaw>
-    	<objaw>Obnizone PCT</objaw>
-    	<objaw>Podwyzszone PDW</objaw>
-	</objawy>
-	<cf>1</cf>
-	<kumulatywna>false</kumulatywna>
-  </regula>
-  <regula>
-	<nr>2</nr>
-	<wniosek>Agregaty Plytkowe</wniosek>
-	<objawy>
-    	<objaw>Obnizone PLT</objaw>
-	</objawy>
-	<cf>0.3</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>  
-  <regula>
-	<nr>3</nr>
-	<wniosek>Agregaty Plytkowe</wniosek>
-	<objawy>
-    	<objaw>Obnizone PCT</objaw>
-	</objawy>
-	<cf>0.3</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>4</nr>
-	<wniosek>Agregaty Plytkowe</wniosek>
-	<objawy>
-    	<objaw>Podwyzszone PDW</objaw>
-	</objawy>
-	<cf>0.3</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
+    <!-- Agregaty plytkowe ZAJECIA -->
+    <regula>
+        <nr>1</nr>
+        <wniosek>Agregaty Plytkowe</wniosek>
+        <objawy>
+            <objaw>Obnizone PLT</objaw>
+        </objawy>
+        <cf>0.3</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>2</nr>
+        <wniosek>Agregaty Plytkowe</wniosek>
+        <objawy>
+            <objaw>Obnizone PCT</objaw>
+        </objawy>
+        <cf>0.3</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>3</nr>
+        <wniosek>Agregaty Plytkowe</wniosek>
+        <objawy>
+            <objaw>Podwyzszone PDW</objaw>
+        </objawy>
+        <cf>0.3</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
     
-  <!-- Maloplytkowosc MONIKA KOZAK -->
-  <regula>
-	<nr>5</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Obnizone PLT</objaw>
-    	<objaw>Obnizone PCT</objaw>
-    	<objaw>Podwyzszone PDW</objaw>
-	</objawy>
-	<cf>1</cf>
-	<kumulatywna>false</kumulatywna>
-  </regula>
-  <regula>
-	<nr>6</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Obnizone PLT</objaw>
-	</objawy>
-	<cf>0.3</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>7</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Obnizone PCT</objaw>
-	</objawy>
-	<cf>0.3</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>8</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Podwyzszone PDW</objaw>
-	</objawy>
-	<cf>0.3</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  
-  <!-- Niedokrwistosc pokrwotoczna MONIKA KOZAK -->
-  <regula>
-	<nr>9</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Podwyzszone WBC</objaw>
-    	<objaw>Podwyzszone MCV Kobieta</objaw>
-    	<objaw>Podwyzszone PDW</objaw>
-		<objaw>Podwyzszone NEU%</objaw>
-    	<objaw>Podwyzszone MON%</objaw>
-    	<objaw>Podwyzszone LYM%</objaw>
-    	<objaw>Podwyzszone ALY%</objaw>
-    	<objaw>Obnizone RBC Kobieta</objaw>
-    	<objaw>Obnizone HGB Kobieta</objaw>
-    	<objaw>Obnizone HCT Kobieta</objaw>
-    	<objaw>Obnizone PLT</objaw>
-    	<objaw>Obnizone PCT</objaw>
-	</objawy>
-	<cf>1</cf>
-	<kumulatywna>false</kumulatywna>
-  </regula>
-  <regula>
-	<nr>10</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Podwyzszone WBC</objaw>
-    	<objaw>Podwyzszone MCV Mezczyzna</objaw>
-    	<objaw>Podwyzszone PDW</objaw>
-		<objaw>Podwyzszone NEU%</objaw>
-    	<objaw>Podwyzszone MON%</objaw>
-    	<objaw>Podwyzszone LYM%</objaw>
-    	<objaw>Podwyzszone ALY%</objaw>
-    	<objaw>Obnizone RBC Mezczyzna</objaw>
-    	<objaw>Obnizone HGB Mezczyzna</objaw>
-    	<objaw>Obnizone HCT Mezczyzna</objaw>
-    	<objaw>Obnizone PLT</objaw>
-    	<objaw>Obnizone PCT</objaw>
-	</objawy>
-	<cf>1</cf>
-	<kumulatywna>false</kumulatywna>
-  </regula>
-  <regula>
-	<nr>11</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Podwyzszone WBC</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>12</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Podwyzszone MCV Mezczyzna</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>13</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Podwyzszone MCV Kobieta</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>14</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Podwyzszone PDW</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>15</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-		<objaw>Podwyzszone NEU%</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>16</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Podwyzszone MON%</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>17</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Podwyzszone LYM%</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>18</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Podwyzszone ALY%</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>19</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Obnizone RBC Mezczyzna</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>20</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Obnizone RBC Kobieta</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>21</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Obnizone HGB Mezczyzna</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>22</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Obnizone HGB Kobieta</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>23</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Obnizone HCT Mezczyzna</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>24</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Obnizone HCT Kobieta</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>25</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Obnizone PLT</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  <regula>
-	<nr>26</nr>
-	<wniosek>Niedokrwistosc pokrwotoczna</wniosek>
-	<objawy>
-    	<objaw>Obnizone PCT</objaw>
-	</objawy>
-	<cf>0.08</cf>
-	<kumulatywna>true</kumulatywna>
-  </regula>
-  
- </reguly>
+    <!-- Maloplytkowosc MONIKA KOZAK -->
+    
+    <regula>
+        <nr>4</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Obnizone PLT</objaw>
+        </objawy>
+        <cf>0.3</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>5</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Obnizone PCT</objaw>
+        </objawy>
+        <cf>0.3</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>6</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone PDW</objaw>
+        </objawy>
+        <cf>0.3</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    
+    <!-- Niedokrwistosc pokrwotoczna MONIKA KOZAK -->
+    <regula>
+        <nr>7</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone WBC</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>8</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MCV Mezczyzna</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>9</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MCV Kobieta</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>10</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone PDW</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>11</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone NEU%</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>12</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MON%</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>13</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone LYM%</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>14</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone ALY%</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>15</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Mezczyzna</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>16</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Kobieta</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>17</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Obnizone HGB Mezczyzna</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>18</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Obnizone HGB Kobieta</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>19</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Mezczyzna</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>20</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Kobieta</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>21</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Obnizone PLT</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>22</nr>
+        <wniosek>Niedokrwistosc pokrwotoczna</wniosek>
+        <objawy>
+            <objaw>Obnizone PCT</objaw>
+        </objawy>
+        <cf>0.08</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    
+    <!-- Eozynofilia MARIUSZ SZACHON -->
+    <regula>
+        <nr>23</nr>
+        <wniosek>Eozynofilia</wniosek>
+        <objawy>
+            <objaw>Podwyzszone WBC</objaw>
+        </objawy>
+        <cf>0.5</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>24</nr>
+        <wniosek>Eozynofilia</wniosek>
+        <objawy>
+            <objaw>Obnizone LYM%</objaw>
+        </objawy>
+        <cf>0.5</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    
+    <!-- Nadplytkowosc BARTOSZ SIRY -->
+    <regula>
+        <nr>25</nr>
+        <wniosek>Nadplytkowosc</wniosek>
+        <objawy>
+            <objaw>Podwyzszone PLT</objaw>
+        </objawy>
+        <cf>0.5</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>26</nr>
+        <wniosek>Nadplytkowosc</wniosek>
+        <objawy>
+            <objaw>Podwyzszone PCT</objaw>
+        </objawy>
+        <cf>0.5</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    
+    <!-- Monocytoza Krzysztof Kopciejewski -->
+    <regula>
+        <nr>27</nr>
+        <wniosek>Monocytoza</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MON%</objaw>
+        </objawy>
+        <cf>1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    
+    <!-- Przewlekla bialaczka limfatyczna Sebastian Matejczuk -->
+    <regula>
+        <nr>28</nr>
+        <wniosek>Przewlekla bialaczka limfatyczna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone WBC</objaw>
+        </objawy>
+        <cf>0.2</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>29</nr>
+        <wniosek>Przewlekla bialaczka limfatyczna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone RDW</objaw>
+        </objawy>
+        <cf>0.2</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>30</nr>
+        <wniosek>Przewlekla bialaczka limfatyczna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone LYM%</objaw>
+        </objawy>
+        <cf>0.2</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>31</nr>
+        <wniosek>Przewlekla bialaczka limfatyczna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone ALY%</objaw>
+        </objawy>
+        <cf>0.2</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>32</nr>
+        <wniosek>Przewlekla bialaczka limfatyczna</wniosek>
+        <objawy>
+            <objaw>Obnizone PDW</objaw>
+        </objawy>
+        <cf>0.2</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    
+    <!-- Szpiczak mnogi MARIUSZ SZACHON -->
+    <regula>
+        <nr>33</nr>
+        <wniosek>Szpiczak mnogi</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Kobieta</objaw>
+        </objawy>
+        <cf>0.14</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>34</nr>
+        <wniosek>Szpiczak mnogi</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Mezczyzna</objaw>
+        </objawy>
+        <cf>0.14</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>35</nr>
+        <wniosek>Szpiczak mnogi</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Mezczyzna</objaw>
+        </objawy>
+        <cf>0.14</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>36</nr>
+        <wniosek>Szpiczak mnogi</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Kobieta</objaw>
+        </objawy>
+        <cf>0.14</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>37</nr>
+        <wniosek>Szpiczak mnogi</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MCV Kobieta</objaw>
+        </objawy>
+        <cf>0.14</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>38</nr>
+        <wniosek>Szpiczak mnogi</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MCHC</objaw>
+        </objawy>
+        <cf>0.14</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>39</nr>
+        <wniosek>Szpiczak mnogi</wniosek>
+        <objawy>
+            <objaw>Obnizone PCT</objaw>
+        </objawy>
+        <cf>0.14</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>40</nr>
+        <wniosek>Szpiczak mnogi</wniosek>
+        <objawy>
+            <objaw>Podwyzszone PDW</objaw>
+        </objawy>
+        <cf>0.14</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>41</nr>
+        <wniosek>Szpiczak mnogi</wniosek>
+        <objawy>
+            <objaw>Obnizone LYM%</objaw>
+        </objawy>
+        <cf>0.14</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    
+    <!-- Chloniak zlosliwy nieziarniczny Sebastian Matejczuk -->
+    <regula>
+        <nr>42</nr>
+        <wniosek>Chloniak zlosliwy nieziarniczny</wniosek>
+        <objawy>
+            <objaw>Podwyzszone WBC</objaw>
+        </objawy>
+        <cf>0.09</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>43</nr>
+        <wniosek>Chloniak zlosliwy nieziarniczny</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Kobieta</objaw>
+        </objawy>
+        <cf>0.09</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>44</nr>
+        <wniosek>Chloniak zlosliwy nieziarniczny</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Mezczyzna</objaw>
+        </objawy>
+        <cf>0.09</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>45</nr>
+        <wniosek>Chloniak zlosliwy nieziarniczny</wniosek>
+        <objawy>
+            <objaw>Obnizone HGB Kobieta</objaw>
+        </objawy>
+        <cf>0.09</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>46</nr>
+        <wniosek>Chloniak zlosliwy nieziarniczny</wniosek>
+        <objawy>
+            <objaw>Obnizone HGB Mezczyzna</objaw>
+        </objawy>
+        <cf>0.09</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>47</nr>
+        <wniosek>Chloniak zlosliwy nieziarniczny</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Mezczyzna</objaw>
+        </objawy>
+        <cf>0.09</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>48</nr>
+        <wniosek>Chloniak zlosliwy nieziarniczny</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Kobieta</objaw>
+        </objawy>
+        <cf>0.09</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>49</nr>
+        <wniosek>Chloniak zlosliwy nieziarniczny</wniosek>
+        <objawy>
+            <objaw>Podwyzszone RDW</objaw>
+        </objawy>
+        <cf>0.09</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>50</nr>
+        <wniosek>Chloniak zlosliwy nieziarniczny</wniosek>
+        <objawy>
+            <objaw>Obnizone PLT</objaw>
+        </objawy>
+        <cf>0.09</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>51</nr>
+        <wniosek>Chloniak zlosliwy nieziarniczny</wniosek>
+        <objawy>
+            <objaw>Obnizone PCT</objaw>
+        </objawy>
+        <cf>0.09</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>52</nr>
+        <wniosek>Chloniak zlosliwy nieziarniczny</wniosek>
+        <objawy>
+            <objaw>Podwyzszone PDW</objaw>
+        </objawy>
+        <cf>0.09</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>53</nr>
+        <wniosek>Chloniak zlosliwy nieziarniczny</wniosek>
+        <objawy>
+            <objaw>Podwyzszone LYM%</objaw>
+        </objawy>
+        <cf>0.09</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>54</nr>
+        <wniosek>Chloniak zlosliwy nieziarniczny</wniosek>
+        <objawy>
+            <objaw>Podwyzszone BAS%</objaw>
+        </objawy>
+        <cf>0.09</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>55</nr>
+        <wniosek>Chloniak zlosliwy nieziarniczny</wniosek>
+        <objawy>
+            <objaw>Podwyzszone ALY%</objaw>
+        </objawy>
+        <cf>0.09</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    
+    <!-- Monoukleoza zakazna Krzysztof Kopciejewski -->
+    <regula>
+        <nr>56</nr>
+        <wniosek>Monoukleoza zakazna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone WBC</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>57</nr>
+        <wniosek>Monoukleoza zakazna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MON%</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>58</nr>
+        <wniosek>Monoukleoza zakazna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone LYM%</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>59</nr>
+        <wniosek>Monoukleoza zakazna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone BAS%</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>60</nr>
+        <wniosek>Monoukleoza zakazna</wniosek>
+        <objawy>
+            <objaw>Podwyzszone ALY%</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>61</nr>
+        <wniosek>Monoukleoza zakazna</wniosek>
+        <objawy>
+            <objaw>Obnizone PLT</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>62</nr>
+        <wniosek>Monoukleoza zakazna</wniosek>
+        <objawy>
+            <objaw>Obnizone PCT</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>63</nr>
+        <wniosek>Monoukleoza zakazna</wniosek>
+        <objawy>
+            <objaw>Obnizone PDW</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    
+    <!-- Mielofibroza BARTOSZ SIRY -->
+    <regula>
+        <nr>64</nr>
+        <wniosek>Mielofibroza</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Kobieta</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>65</nr>
+        <wniosek>Mielofibroza</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Mezczyzna</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>66</nr>
+        <wniosek>Mielofibroza</wniosek>
+        <objawy>
+            <objaw>Obnizone HGB Kobieta</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>67</nr>
+        <wniosek>Mielofibroza</wniosek>
+        <objawy>
+            <objaw>Obnizone HGB Mezczyzna</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>68</nr>
+        <wniosek>Mielofibroza</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Kobieta</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>69</nr>
+        <wniosek>Mielofibroza</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Mezczyzna</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>70</nr>
+        <wniosek>Mielofibroza</wniosek>
+        <objawy>
+            <objaw>Obnizone PLT</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>71</nr>
+        <wniosek>Mielofibroza</wniosek>
+        <objawy>
+            <objaw>Obnizone PCT</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>72</nr>
+        <wniosek>Mielofibroza</wniosek>
+        <objawy>
+            <objaw>Obnizone PDW</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>73</nr>
+        <wniosek>Mielofibroza</wniosek>
+        <objawy>
+            <objaw>Podwyzszone WBC</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>74</nr>
+        <wniosek>Mielofibroza</wniosek>
+        <objawy>
+            <objaw>Podwyzszone RDW</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>75</nr>
+        <wniosek>Mielofibroza</wniosek>
+        <objawy>
+            <objaw>Podwyzszone NEU%</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>76</nr>
+        <wniosek>Mielofibroza</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MON%</objaw>
+        </objawy>
+        <cf>0.12</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    
+    <!-- Ostra białaczka mieloblastyczna typ M1 RAFAL MAZUREK -->
+    <regula>
+        <nr>77</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M1</wniosek>
+        <objawy>
+            <objaw>Obnizone WBC</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>78</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M1</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Kobieta</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>79</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M1</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Mezczyzna</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>80</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M1</wniosek>
+        <objawy>
+            <objaw>Obnizone HGB Kobieta</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>81</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M1</wniosek>
+        <objawy>
+            <objaw>Obnizone HGB Mezczyzna</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>82</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M1</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Kobieta</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>83</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M1</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Mezczyzna</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>84</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M1</wniosek>
+        <objawy>
+            <objaw>Podwyzszone RDW</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+	</regula>
+    <regula>
+        <nr>85</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M1</wniosek>
+        <objawy>
+            <objaw>Obnizone PLT</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>86</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M1</wniosek>
+        <objawy>
+            <objaw>Obnizone PCT</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>87</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M1</wniosek>
+        <objawy>
+            <objaw>Podwyzszone PDW</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>88</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M1</wniosek>
+        <objawy>
+            <objaw>Obnizone NEU%</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>89</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M1</wniosek>
+        <objawy>
+            <objaw>Obnizone LYM%</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    
+    <!-- Ostra białaczka mieloblastyczna typ M2 RAFAL MAZUREK -->
+    <regula>
+        <nr>90</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M2</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Kobieta</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>91</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M2</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Mezczyzna</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>92</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M2</wniosek>
+        <objawy>
+            <objaw>Obnizone HGB Kobieta</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>93</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M2</wniosek>
+        <objawy>
+            <objaw>Obnizone HGB Mezczyzna</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>94</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M2</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Kobieta</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>95</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M2</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Mezczyzna</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>96</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M2</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MCV Kobieta</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>97</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M2</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MCV Mezczyzna</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>98</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M2</wniosek>
+        <objawy>
+            <objaw>Podwyzszone RDW</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>99</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M2</wniosek>
+        <objawy>
+            <objaw>Obnizone PLT</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>100</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M2</wniosek>
+        <objawy>
+            <objaw>Obnizone PCT</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>101</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M2</wniosek>
+        <objawy>
+            <objaw>Podwyzszone PDW</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>102</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M2</wniosek>
+        <objawy>
+            <objaw>Obnizone NEU%</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>103</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M2</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MON%</objaw>
+        </objawy>
+        <cf>0.1</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    
+    <!-- Ostra białaczka mieloblastyczna typ M3 RAFAL MAZUREK -->
+    <regula>
+        <nr>104</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Podwyzszone WBC</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>105</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Kobieta</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>106</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Mezczyzna</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>107</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Obnizone HGB Kobieta</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>108</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Obnizone HGB Mezczyzna</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>109</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Kobieta</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>110</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Mezczyzna</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>111</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MCHC</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>112</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Podwyzszone RDW</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>113</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Obnizone PLT</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>114</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Obnizone MPV</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>115</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Obnizone PCT</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>116</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Podwyzszone PDW</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>117</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Podwyzszone NEU%</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>118</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MON%</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>119</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Podwyzszone LYM%</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>120</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Podwyzszone BAS%</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>121</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M3</wniosek>
+        <objawy>
+            <objaw>Podwyzszone ALY%</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    
+    <!-- Ostra białaczka mieloblastyczna typ M5B RAFAL MAZUREK -->
+    <regula>
+        <nr>122</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Podwyzszone WBC</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>123</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Kobieta</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>124</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Obnizone RBC Mezczyzna</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>125</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Obnizone HGB Kobieta</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>126</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Obnizone HGB Mezczyzna</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>127</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Kobieta</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>128</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Obnizone HCT Mezczyzna</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>129</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MCV Kobieta</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>130</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MCV Mezczyzna</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>131</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MCH</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>132</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MCHC</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>133</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Obnizone PLT</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>134</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Obnizone PCT</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>135</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Podwyzszone PDW</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>136</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Podwyzszone NEU%</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>137</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Podwyzszone MON%</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>138</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Podwyzszone LYM%</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>139</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Podwyzszone BAS%</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    <regula>
+        <nr>140</nr>
+        <wniosek>Ostra białaczka mieloblastyczna typ M5B</wniosek>
+        <objawy>
+            <objaw>Podwyzszone LIC%</objaw>
+        </objawy>
+        <cf>0.06</cf>
+        <kumulatywna>true</kumulatywna>
+    </regula>
+    
+</reguly>
+
+

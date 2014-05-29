@@ -42,6 +42,8 @@ public class MainWindow extends javax.swing.JFrame {
     File regulyXML;
     File modeleXML;
     File wykluczeniaXML;
+    final JFrame objawy = new JFrame("Wprowadz objawy");    //tworzenie frame
+
 
     ArrayList<DaneWejsciowe> objawyList = new ArrayList<>();
 
@@ -359,7 +361,6 @@ public class MainWindow extends javax.swing.JFrame {
       if (isWoman == 2) {
           return;
       }
-      JFrame objawy = new JFrame("Wprowadz objawy");    //tworzenie frame
       JButton zatwierdz = new JButton("zatwierdz");
       objawy.setVisible(true);
       objawy.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -418,6 +419,7 @@ public class MainWindow extends javax.swing.JFrame {
                   jMenuItem12.setEnabled(true);
               } catch (NumberFormatException | NullPointerException n) {
                   blad.setText("Wprowadzono bledny format danych");
+                  objawy.setVisible(false);
               }
           }
       });

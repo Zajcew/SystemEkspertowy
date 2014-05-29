@@ -131,4 +131,22 @@
 			<wykluczenie>Obnizone NEU%</wykluczenie>
 		</wykluczenia>
 	</ograniczenie>
+	<ograniczenie>
+		<nr>14</nr>
+		<nazwa>MON%</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma MON%</wykluczenie>
+			<wykluczenie>Podwyzszone MON%</wykluczenie>
+			<wykluczenie>Obnizone MON%</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
+	<ograniczenie>
+		<nr>15</nr>
+		<nazwa>LYM%</nazwa>
+		<wykluczenia>
+			<wykluczenie>Norma LYM%</wykluczenie>
+			<wykluczenie>Podwyzszone LYM%</wykluczenie>
+			<wykluczenie>Obnizone LYM%</wykluczenie>
+		</wykluczenia>
+	</ograniczenie>
 </ograniczenia>
