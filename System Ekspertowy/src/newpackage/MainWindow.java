@@ -5,29 +5,26 @@
  */
 package newpackage;
 
-
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.accessibility.AccessibleRole;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
-import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -43,14 +40,13 @@ public class MainWindow extends javax.swing.JFrame {
     File modeleXML;
     File wykluczeniaXML;
     final JFrame objawy = new JFrame("Wprowadz objawy");    //tworzenie frame
-
-
     ArrayList<DaneWejsciowe> objawyList = new ArrayList<>();
+    HashMap<String, ArrayList<String>> graphMap = new HashMap<String, ArrayList<String>>();
 
     public MainWindow() {
         initComponents();
         setLocationRelativeTo(null);
-        
+
     }
 
     /**
@@ -82,6 +78,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem13 = new javax.swing.JMenuItem();
 
@@ -212,18 +209,26 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu6.add(jMenuItem12);
 
+        jMenuItem14.setText("Graf");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem14);
+
         jMenuBar2.add(jMenu6);
 
         jMenu7.setText("Tryb auto");
         jMenu7.addMenuDragMouseListener(new javax.swing.event.MenuDragMouseListener() {
-            public void menuDragMouseEntered(javax.swing.event.MenuDragMouseEvent evt) {
-            }
             public void menuDragMouseExited(javax.swing.event.MenuDragMouseEvent evt) {
-            }
-            public void menuDragMouseDragged(javax.swing.event.MenuDragMouseEvent evt) {
             }
             public void menuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {
                 jMenu7MenuDragMouseReleased(evt);
+            }
+            public void menuDragMouseDragged(javax.swing.event.MenuDragMouseEvent evt) {
+            }
+            public void menuDragMouseEntered(javax.swing.event.MenuDragMouseEvent evt) {
             }
         });
         jMenu7.addActionListener(new java.awt.event.ActionListener() {
@@ -285,7 +290,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 
         AddRule rule = new AddRule(regulyXML);
-
+        
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -398,7 +403,7 @@ public class MainWindow extends javax.swing.JFrame {
               objawy.setVisible(false);
           }
 
-      //rbc
+          //rbc
           //hgb      kobieta/man
           //hct
           //mcv
@@ -436,37 +441,58 @@ public class MainWindow extends javax.swing.JFrame {
 
       engine.read(modeleXML.getPath(), regulyXML.getPath(), wykluczeniaXML.getPath()); //ścieżki do plików: modelu, zasad i ograniczeń
       engine.parse(); //parsowanie xmla
-      System.out.println("Models array size: "+engine.modelsArray.size());
-      System.out.println("Rules array size: "+engine.rulesArray.size());
-      System.out.println("Const. array size: "+engine.constraintsArray.size());
+      System.out.println("Models array size: " + engine.modelsArray.size());
+      System.out.println("Rules array size: " + engine.rulesArray.size());
+      System.out.println("Const. array size: " + engine.constraintsArray.size());
       engine.runn(); //uruchomienie wnioskowania
       System.out.println(engine.kroki.size());
-    //wyświetlenie co z czego zostało wywnioskowane:
+      //wyświetlenie co z czego zostało wywnioskowane:
+      
+
       for (Rules r : engine.kroki) {
           for (String str : r.warunki) {
+              if(!graphMap.containsKey(str)){
+                  if(!graphMap.containsValue(r.wniosek)){
+                      ArrayList<String> tmp = new ArrayList<String>();
+                      tmp.add(0,r.wniosek+" "+ r.CF);
+                      graphMap.put(str,tmp);
+                  }                
+              }else{
+                  ArrayList<String> tmp = graphMap.get(str);
+                  tmp.add(tmp.size(), r.wniosek+" "+ r.CF);
+                  graphMap.put(str, tmp);                 
+              }
               System.out.print(str + " + ");
+              System.out.println("=> " + r.wniosek + " CF: " + r.CF);
+              
           }
-          System.out.println("=> " + r.wniosek + " CF: "+r.CF);
+      }
+
+      Iterator<String> iterator = graphMap.keySet().iterator();
+      while(iterator.hasNext()){
+          String key = iterator.next();
+          System.out.println(key+" kluuuuuuuuucz");
+          for(String s : graphMap.get(key)){
+              System.out.println(s);
+          }
           
       }
 
-        
+
   }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenu7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu7ActionPerformed
-        
     }//GEN-LAST:event_jMenu7ActionPerformed
 
     private void jMenu7MenuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {//GEN-FIRST:event_jMenu7MenuDragMouseReleased
-
     }//GEN-LAST:event_jMenu7MenuDragMouseReleased
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        
+
         regulyXML = new File("reguly.xml");
         modeleXML = new File("model.xml");
         wykluczeniaXML = new File("ograniczenia.xml");
-        
+
         jMenuItem10.setEnabled(true);
         jMenuItem2.setEnabled(true);
         jMenuItem7.setEnabled(true);
@@ -476,10 +502,16 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuItem9.setEnabled(true);
         jMenu6.setEnabled(true);
         jMenuItem12.setEnabled(true);
-        
+
         jMenuItem11ActionPerformed(evt);
 
     }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        // TODO add your handling code here:
+        Wizualizacja w = new Wizualizacja();
+        
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     private void setObjawy(File oganiczeniaXML, ArrayList<DaneWejsciowe> objList, boolean czyMan) {
         try (Scanner sc = new Scanner(oganiczeniaXML)) {
@@ -520,7 +552,7 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
@@ -534,7 +566,7 @@ public class MainWindow extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-    //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -559,6 +591,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
