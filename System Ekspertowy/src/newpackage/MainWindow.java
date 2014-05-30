@@ -5,6 +5,7 @@
  */
 package newpackage;
 
+
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -42,11 +44,28 @@ public class MainWindow extends javax.swing.JFrame {
     final JFrame objawy = new JFrame("Wprowadz objawy");    //tworzenie frame
     ArrayList<DaneWejsciowe> objawyList = new ArrayList<>();
     HashMap<String, ArrayList<String>> graphMap = new HashMap<String, ArrayList<String>>();
+    Vector<Wynik> wykresVector = new Vector<Wynik>();
 
     public MainWindow() {
         initComponents();
         setLocationRelativeTo(null);
 
+    }
+    
+    public static class Wynik{
+        public String opis;
+        public double cf;
+        public Wynik(String opis, double cf){
+            this.opis=opis;
+            this.cf=cf;
+        }
+        public String getOpis() {
+            return opis;
+        }
+        public double getCf() {
+            return cf;
+        }
+        
     }
 
     /**
@@ -79,6 +98,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
+        jMenuItem15 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem13 = new javax.swing.JMenuItem();
 
@@ -217,18 +237,26 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu6.add(jMenuItem14);
 
+        jMenuItem15.setLabel("Wykres CF");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem15ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem15);
+
         jMenuBar2.add(jMenu6);
 
         jMenu7.setText("Tryb auto");
         jMenu7.addMenuDragMouseListener(new javax.swing.event.MenuDragMouseListener() {
-            public void menuDragMouseExited(javax.swing.event.MenuDragMouseEvent evt) {
-            }
             public void menuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {
                 jMenu7MenuDragMouseReleased(evt);
             }
-            public void menuDragMouseDragged(javax.swing.event.MenuDragMouseEvent evt) {
-            }
             public void menuDragMouseEntered(javax.swing.event.MenuDragMouseEvent evt) {
+            }
+            public void menuDragMouseExited(javax.swing.event.MenuDragMouseEvent evt) {
+            }
+            public void menuDragMouseDragged(javax.swing.event.MenuDragMouseEvent evt) {
             }
         });
         jMenu7.addActionListener(new java.awt.event.ActionListener() {
@@ -462,9 +490,9 @@ public class MainWindow extends javax.swing.JFrame {
                   tmp.add(tmp.size(), r.wniosek+" "+ r.CF);
                   graphMap.put(str, tmp);                 
               }
+              wykresVector.add(new Wynik(r.wniosek, r.CF));
               System.out.print(str + " + ");
-              System.out.println("=> " + r.wniosek + " CF: " + r.CF);
-              
+              System.out.println("=> " + r.wniosek + " CF: " + r.CF);   
           }
       }
 
@@ -511,6 +539,13 @@ public class MainWindow extends javax.swing.JFrame {
         Wizualizacja w = new Wizualizacja(graphMap);
         
     }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+        // TODO add your handling code here:
+        Wykres w = new Wykres(wykresVector);
+        w.show();
+        
+    }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     private void setObjawy(File oganiczeniaXML, ArrayList<DaneWejsciowe> objList, boolean czyMan) {
         try (Scanner sc = new Scanner(oganiczeniaXML)) {
@@ -591,6 +626,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
