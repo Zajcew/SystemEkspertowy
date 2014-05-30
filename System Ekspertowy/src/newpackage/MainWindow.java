@@ -38,6 +38,7 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
+    private String wnioski;
     File regulyXML;
     File modeleXML;
     File wykluczeniaXML;
@@ -97,6 +98,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem16 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
@@ -229,6 +231,14 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu6.add(jMenuItem12);
 
+        jMenuItem16.setText("Wyswietl wnioski");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem16ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem16);
+
         jMenuItem14.setText("Graf");
         jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,14 +259,14 @@ public class MainWindow extends javax.swing.JFrame {
 
         jMenu7.setText("Tryb auto");
         jMenu7.addMenuDragMouseListener(new javax.swing.event.MenuDragMouseListener() {
-            public void menuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {
-                jMenu7MenuDragMouseReleased(evt);
+            public void menuDragMouseDragged(javax.swing.event.MenuDragMouseEvent evt) {
             }
             public void menuDragMouseEntered(javax.swing.event.MenuDragMouseEvent evt) {
             }
             public void menuDragMouseExited(javax.swing.event.MenuDragMouseEvent evt) {
             }
-            public void menuDragMouseDragged(javax.swing.event.MenuDragMouseEvent evt) {
+            public void menuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {
+                jMenu7MenuDragMouseReleased(evt);
             }
         });
         jMenu7.addActionListener(new java.awt.event.ActionListener() {
@@ -315,6 +325,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 
         AddRule rule = new AddRule(regulyXML);
@@ -476,7 +487,7 @@ public class MainWindow extends javax.swing.JFrame {
       System.out.println(engine.kroki.size());
       //wyświetlenie co z czego zostało wywnioskowane:
       
-      String wnioskowanie="";
+     
       for (Rules r : engine.kroki) {
           for (String str : r.warunki) {
               if(!graphMap.containsKey(str)){
@@ -490,8 +501,8 @@ public class MainWindow extends javax.swing.JFrame {
                   tmp.add(tmp.size(), r.wniosek+" "+ r.CF);
                   graphMap.put(str, tmp);                 
               }
-              wnioskowanie+=str + " ";
-              wnioskowanie+="=> " + r.wniosek + " CF: " + r.CF+"<br>";
+              wnioski+=str + " ";
+              wnioski+="=> " + r.wniosek + " CF: " + r.CF+"<br>";
               wykresVector.add(new Wynik(r.wniosek, r.CF));
               System.out.print(str + " + ");
               System.out.println("=> " + r.wniosek + " CF: " + r.CF);   
@@ -507,8 +518,6 @@ public class MainWindow extends javax.swing.JFrame {
           }  
       }
       
-      WyswietlanieWnioskowania wn = new WyswietlanieWnioskowania("<html>" + wnioskowanie + "</html>");
-
 
   }//GEN-LAST:event_jMenuItem12ActionPerformed
 
@@ -550,6 +559,15 @@ public class MainWindow extends javax.swing.JFrame {
         w.show();
         
     }//GEN-LAST:event_jMenuItem15ActionPerformed
+
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+        
+        if(wnioski==null||wnioski.equals("")){
+            JOptionPane.showMessageDialog(this, "Musisz wykonać wnioskowanie!");
+        }else{
+            WyswietlanieWnioskowania wn = new WyswietlanieWnioskowania("<html>" + wnioski + "</html>");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
 
     private void setObjawy(File oganiczeniaXML, ArrayList<DaneWejsciowe> objList, boolean czyMan) {
         try (Scanner sc = new Scanner(oganiczeniaXML)) {
@@ -631,6 +649,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
