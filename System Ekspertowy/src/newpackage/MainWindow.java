@@ -397,7 +397,7 @@ public class MainWindow extends javax.swing.JFrame {
       JButton zatwierdz = new JButton("zatwierdz");
       objawy.setVisible(true);
       objawy.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-      objawy.setSize(720, 480);
+      objawy.setSize(720, 720);
       objawy.setLocationRelativeTo(null);
       objawy.setAlwaysOnTop(true);
 
@@ -476,7 +476,7 @@ public class MainWindow extends javax.swing.JFrame {
       System.out.println(engine.kroki.size());
       //wyświetlenie co z czego zostało wywnioskowane:
       
-
+      String wnioskowanie="";
       for (Rules r : engine.kroki) {
           for (String str : r.warunki) {
               if(!graphMap.containsKey(str)){
@@ -490,6 +490,8 @@ public class MainWindow extends javax.swing.JFrame {
                   tmp.add(tmp.size(), r.wniosek+" "+ r.CF);
                   graphMap.put(str, tmp);                 
               }
+              wnioskowanie+=str + " ";
+              wnioskowanie+="=> " + r.wniosek + " CF: " + r.CF+"<br>";
               wykresVector.add(new Wynik(r.wniosek, r.CF));
               System.out.print(str + " + ");
               System.out.println("=> " + r.wniosek + " CF: " + r.CF);   
@@ -504,6 +506,8 @@ public class MainWindow extends javax.swing.JFrame {
               System.out.println(s);
           }  
       }
+      
+      WyswietlanieWnioskowania wn = new WyswietlanieWnioskowania("<html>" + wnioskowanie + "</html>");
 
 
   }//GEN-LAST:event_jMenuItem12ActionPerformed
