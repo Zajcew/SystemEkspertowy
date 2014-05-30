@@ -6,9 +6,12 @@ package newpackage;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -31,19 +34,25 @@ public class Wizualizacja extends javax.swing.JFrame {
      */
     private static final Color DEFAULT_BG_COLOR = Color.decode("#FAFBFF");
     private static final Dimension DEFAULT_SIZE = new Dimension(530, 320);
+    HashMap<String, ArrayList<String>> graphMap;
 
-    public Wizualizacja() {
+    public Wizualizacja(HashMap<String, ArrayList<String>> graphMap) {
+        this.graphMap = graphMap;
         initComponents();
         JGraphAdapterDemo d = new JGraphAdapterDemo();
         d.init();
         d.show();
     }
 
+    public Wizualizacja() {
+        initComponents();
+    }
+
     private void paintGraph() {
         new JGraphAdapterDemo().init();
     }
 
-    public class JGraphAdapterDemo extends JFrame{
+    public class JGraphAdapterDemo extends JFrame {
 
         // 
         private JGraphModelAdapter m_jgAdapter;
@@ -64,24 +73,23 @@ public class Wizualizacja extends javax.swing.JFrame {
             getContentPane().add(jgraph);
             resize(DEFAULT_SIZE);
 
-            // add some sample data (graph manipulated via JGraphT)
-            g.addVertex("v1");
-            g.addVertex("v2");
-            g.addVertex("v3");
-            g.addVertex("v4");
+            Point p = new Point(1,1);
+            Iterator<String> iterator = graphMap.keySet().iterator();
+            int i=0;
+            while (iterator.hasNext()) {
+                String key = iterator.next();
+                g.addVertex(key);
+                positionVertexAt(key, p.x, p.y);
+                for (String s : graphMap.get(key)) {
+                    g.addVertex(s);
+                    g.addEdge(key, s);
+                    positionVertexAt(s, p.x+i, p.y+50);
+                    i+=100;
+                }
+                i=0;
+                p.y+=100;
+            }
 
-            g.addEdge("v1", "v2");
-            g.addEdge("v2", "v3");
-            g.addEdge("v3", "v1");
-            g.addEdge("v4", "v3");
-
-            // position vertices nicely within JGraph component
-            positionVertexAt("v1", 130, 40);
-            positionVertexAt("v2", 60, 200);
-            positionVertexAt("v3", 310, 230);
-            positionVertexAt("v4", 380, 70);
-
-            // that's all there is to it!...
         }
 
         private void adjustDisplaySettings(JGraph jg) {
@@ -101,12 +109,12 @@ public class Wizualizacja extends javax.swing.JFrame {
         private void positionVertexAt(Object vertex, int x, int y) {
             DefaultGraphCell cell = m_jgAdapter.getVertexCell(vertex);
             Map attr = cell.getAttributes();
-            Rectangle2D b =  GraphConstants.getBounds(attr);
+            Rectangle2D b = GraphConstants.getBounds(attr);
 
-            GraphConstants.setBounds(attr, new Rectangle(x, y, (int)b.getWidth(), (int)b.getHeight()));
+            GraphConstants.setBounds(attr, new Rectangle(x, y, (int) b.getWidth(), (int) b.getHeight()));
             Map cellAttr = new HashMap();
             cellAttr.put(cell, attr);
-            m_jgAdapter.edit(cellAttr, null, null, null);        
+            m_jgAdapter.edit(cellAttr, null, null, null);
         }
     }
 

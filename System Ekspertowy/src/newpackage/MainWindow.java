@@ -474,8 +474,7 @@ public class MainWindow extends javax.swing.JFrame {
           System.out.println(key+" kluuuuuuuuucz");
           for(String s : graphMap.get(key)){
               System.out.println(s);
-          }
-          
+          }  
       }
 
 
@@ -509,7 +508,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
         // TODO add your handling code here:
-        Wizualizacja w = new Wizualizacja();
+        Wizualizacja w = new Wizualizacja(graphMap);
         
     }//GEN-LAST:event_jMenuItem14ActionPerformed
 
