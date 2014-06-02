@@ -32,7 +32,7 @@ public class Wizualizacja extends javax.swing.JFrame {
      * Creates new form Wizualizacja
      */
     private static final Color DEFAULT_BG_COLOR = Color.decode("#FAFBFF");
-    private static final Dimension DEFAULT_SIZE = new Dimension(530, 320);
+    private static final Dimension DEFAULT_SIZE = new Dimension(1024, 768);
     HashMap<String, ArrayList<String>> graphMap;
 
     public Wizualizacja(HashMap<String, ArrayList<String>> graphMap) {
@@ -56,9 +56,7 @@ public class Wizualizacja extends javax.swing.JFrame {
         // 
         private JGraphModelAdapter m_jgAdapter;
 
-        /**
-         * @see java.applet.Applet#init().
-         */
+        
         public void init() {
             // create a JGraphT graph
             ListenableGraph g = new ListenableDirectedGraph(DefaultEdge.class);
@@ -71,7 +69,7 @@ public class Wizualizacja extends javax.swing.JFrame {
             adjustDisplaySettings(jgraph);
             getContentPane().add(jgraph);
             resize(DEFAULT_SIZE);
-
+            
             Point p = new Point(1,1);
             Iterator<String> iterator = graphMap.keySet().iterator();
             int i=0;
@@ -93,7 +91,7 @@ public class Wizualizacja extends javax.swing.JFrame {
 
         private void adjustDisplaySettings(JGraph jg) {
             jg.setPreferredSize(DEFAULT_SIZE);
-
+            jg.setSize(1024, 768);
             Color c = DEFAULT_BG_COLOR;
             Color colorStr = null;
 
@@ -134,11 +132,11 @@ public class Wizualizacja extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 571, Short.MAX_VALUE)
+            .addGap(0, 980, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 453, Short.MAX_VALUE)
+            .addGap(0, 750, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

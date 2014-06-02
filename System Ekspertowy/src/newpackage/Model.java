@@ -10,14 +10,14 @@ public class Model {
     public ArrayList<Float> parametry = new ArrayList<Float>();
 
     public boolean is(float a, String operator, float parametr) {
-     // System.out.println(operator+"   "+parametr);
+      //System.out.println(operator+"   "+parametr);
         if (operator.equals(">")) {
             return a > parametr;
-        } else if (operator.equals("&gt=")) {
+        } else if (operator.equals(">=")) {
             return a >= parametr;
         } else if (operator.equals("<")) {
             return a < parametr;
-        } else if (operator.equals("&lt=")) {
+        } else if (operator.equals("<=")) {
             return a <= parametr;
         } else if (operator.equals("=")) {
             return a == parametr;

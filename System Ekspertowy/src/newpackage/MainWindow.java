@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -439,7 +440,7 @@ public class MainWindow extends javax.swing.JFrame {
           @Override
           public void actionPerformed(java.awt.event.ActionEvent evt) {
               zatwierdzActionPerformed(evt);
-              objawy.setVisible(false);
+              
           }
 
           //rbc
@@ -451,9 +452,10 @@ public class MainWindow extends javax.swing.JFrame {
               try {
                   float d;
 
-                  for (int i = 0; i < objawyList.size(); i++) {
-                      if (jFields.get(i).getText().isEmpty()) {
-                          JOptionPane.showMessageDialog(null, "Wprowadz wszystkie dane");
+                  for (int i = 0; i < jFields.size(); i++) {
+                      if (jFields.get(i).getText().isEmpty() || jFields.get(i).getText()==null) {
+                          JOptionPane.showMessageDialog(objawy, "Wprowadz wszystkie dane");
+                          
                           return;
                       }
                       d = Float.parseFloat(jFields.get(i).getText());
@@ -466,6 +468,7 @@ public class MainWindow extends javax.swing.JFrame {
                   blad.setText("Wprowadzono bledny format danych");
                   objawy.setVisible(false);
               }
+              objawy.setVisible(false);
           }
       });
 
@@ -474,6 +477,7 @@ public class MainWindow extends javax.swing.JFrame {
 
   private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
       //Wnioskowanie
+      Random rand = new Random();
       Silnik engine = new Silnik();
       System.out.println("Objawy list size: " + objawyList.size());
       engine.daneWejscioweArray = objawyList;
@@ -486,14 +490,21 @@ public class MainWindow extends javax.swing.JFrame {
       engine.runn(); //uruchomienie wnioskowania
       System.out.println(engine.kroki.size());
       //wyświetlenie co z czego zostało wywnioskowane:
-      
+      double tmp4;
      
       for (Rules r : engine.kroki) {
           for (String str : r.warunki) {
               if(!graphMap.containsKey(str)){
                   if(!graphMap.containsValue(r.wniosek)){
+                      
                       ArrayList<String> tmp = new ArrayList<String>();
                       tmp.add(0,r.wniosek+" "+ r.CF);
+                      if(r.wniosek.equals("Monocytoza")){
+                          tmp4 = rand.nextDouble()%1;
+                          r.CF=(float) tmp4;
+                      }
+                      
+                          
                       graphMap.put(str,tmp);
                   }                
               }else{

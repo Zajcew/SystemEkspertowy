@@ -4,6 +4,10 @@ import java.awt.Button;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -42,23 +46,23 @@ public class Silnik {
 
     public void parse() {
         /*
-         Fact t = new Fact();
-         t.CF = 0.5f;
-         t.value = "Obnizone PLT";
-         factsArray.add(t);
+        Fact t = new Fact();
+        t.CF = 0.5f;
+        t.value = "Obnizone PLT";
+        factsArray.add(t);
 
-         Fact t2 = new Fact();
-         t2.CF = 0.3f;
-         t2.value = "Obnizone PCT";
-         factsArray.add(t2);
+        Fact t2 = new Fact();
+        t2.CF = 0.3f;
+        t2.value = "Obnizone PCT";
+        factsArray.add(t2);
 
-         Fact t3 = new Fact();
-         t3.CF = 0.3f;
-         t3.value = "pobyt tropiki";
-         factsArray.add(t3);
+        Fact t3 = new Fact();
+        t3.CF = 0.3f;
+        t3.value = "pobyt tropiki";
+        factsArray.add(t3);
          */
 
-    //       Constraints c = new Constraints();
+        //       Constraints c = new Constraints();
 //        c.lista.add("tem3");
 //        c.lista.add("tem4");
 //        constraintsArray.add(c);
@@ -104,7 +108,7 @@ public class Silnik {
         System.out.println(rulesArray.size() + "  @ " + Parser.rulesList.size());
         constraintsArray = Parser.restrictionsList;
 
-    //System.out.println("blablabla: " + rulesArray.size());
+        //System.out.println("blablabla: " + rulesArray.size());
 //
 //        for (Rules rul : rulesArray) {
 //            for (String str : rul.warunki) {
@@ -126,11 +130,19 @@ public class Silnik {
 
         String tresc = "";
         //wariant 1
+        Integer count = 0;
+        
+        Map<String,String> map = new HashMap<String,String>();
+        
         for (String string : constraint) {
-            return string;
+            count++;
+            map.put(count.toString(), string);
+            
+            tresc += count + ") dla " + string + " ";
         }
-
-        return JOptionPane.showInputDialog("Wybierz: " + tresc);
+        String result = JOptionPane.showInputDialog("Wybierz: " + tresc);
+        
+        return map.get(result);
     }
 
     @Deprecated
@@ -163,11 +175,13 @@ public class Silnik {
             for (Model model : modelsArray) {
                 if (daneWejsciowe.argument.equalsIgnoreCase(model.argument)) {
                     pom = model.oblicz(daneWejsciowe.wartosc);
+                    //System.out.println("cos  "+daneWejsciowe.wartosc+"  "+model.argument+"  => "+model.wniosek);
                     if (pom != null) {
                         Fact f = new Fact();
                         f.CF = 1.0f;
                         f.value = pom;
                         factsArray.add(f);
+                        System.out.println("     " + f.value);
                         break;
                     }
                 }
@@ -187,10 +201,38 @@ public class Silnik {
         return mini;
     }
 
+    private void usuwanieOgraniczen() {
+        for (Fact fact : factsArray) {  //dla każdego faktu
+            Constraints ogr = findConstraint(fact.value, constraintsArray); //szukamy jego ograniczenia
+            if (ogr != null) {
+                for (String string : ogr.lista) {   //i każdy z jego sąsiadów
+                    if (!fact.value.equals(string)) { //ale nie on sam
+                        for (int i = 0; i < rulesArray.size(); i++) //przechodzimy przez wszystkie zasady
+                        {
+                            Rules rules = rulesArray.get(i);
+
+                            for (String string1 : rules.warunki) {
+                                if (string1.equals(string)) {
+                                    rulesArray.remove(rules);
+                                    i=0;
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+
+            }
+        }
+
+    }
+
     public void runn() {
         baza = new FactDataBase();
 
         wywiad();
+        usuwanieOgraniczen();
         baza.lista = factsArray;
         int dlugoscListy = baza.lista.size();
         int poprzedniaDlugoscListy = 0;
@@ -229,7 +271,7 @@ public class Silnik {
                         }
                     }
 
-          //sprawdzamy, czy reguła jest w ograniczeniach
+                    //sprawdzamy, czy reguła jest w ograniczeniach
                     //jeżeli jest, to usuwamy wszystkie reguły w warunkach
                     // których jest sąsiad tego wniosku
                     Constraints ogr = findConstraint(zasady.wniosek, constraintsArray);
@@ -239,13 +281,17 @@ public class Silnik {
                             if (strin.equals(zasady.wniosek)) {
                                 continue;
                             }
-                            for (Rules zasada : rulesArray) {
+                            for (int j= 0; j < rulesArray.size(); j++) {
+                                Rules zasada = rulesArray.get(i);
+
                                 for (String warunek : zasada.warunki) {
                                     if (warunek.equals(strin)) {
                                         rulesArray.remove(zasada);
+                                        j=0;
                                     }
                                 }
                             }
+                            
                         }
                     }
 
@@ -253,9 +299,13 @@ public class Silnik {
 
                 } else if (iluNieMa == 1) {
                     System.out.println("sdfsdfsdfsfd");
+                    System.out.println(zasady.wniosek);
+                    for (String rrrr : zasady.warunki) {
+                        System.out.println(rrrr);
+                    }
 
                     String pom = "";
-          //
+                    //
                     //sprawdzamy, czy brakujący warunek nie jest ograniczeniem...
                     //
                     for (String str : zasady.warunki) {
@@ -264,9 +314,10 @@ public class Silnik {
                         }
                     }
                     Constraints ograniczenie = findConstraint(pom, constraintsArray);
-          //boolean flaga = ifConstraint(pom);
+                    //boolean flaga = ifConstraint(pom);
+                    System.out.println("!!!!! " + pom);
 
-          //
+                    //
                     //...i jeżeli jest to sprawdzamy czy nie jest przypadkiem wnioskiem w jakiejś regule
                     //
                     boolean doubleBreaker = false;
